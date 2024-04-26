@@ -17,8 +17,7 @@ const PublicFeed = () => {
                 // Process the data if necessary, e.g., convert it to URLs or keep as base64
                 const processedPhotos = res.data.map(photo => ({
                     ...photo,
-                    // If needed, you can convert the base64 to a URL like this:
-                    // url: `data:image/jpeg;base64,${photo.data}`
+
                 }));
                 setPhotos(processedPhotos);
                 setFilteredPhotos(processedPhotos);
@@ -37,33 +36,6 @@ const PublicFeed = () => {
     return (
         <div className="center">
 
-            {/* <Menu
-            onClick={(key)=>{
-                navigate(key)
-            }}
-            items={[
-                {label:"All Photos", key: "/home/photon/all"},
-                {label:"Shared", key: "/home/photon/share"},
-                {label:"Saved", key: "/home/photon/save"},
-                {label:"Favs", key: "/home/photon/fav"},
-                {label:"Albums", key: "/home/photon/album"},
-                {label:"Locked", key: "/home/photon/lock"},
-                {label:"Bin", key: "/home/photon/bin"},
-            ]}
-            >
-            </Menu> */}
-
-            {/* <div className="sidebar">
-                <ul>
-                    <li><a href="/home/photon">All Photos</a></li>
-                    <li><a href="/home/photon/share">Shared</a></li>
-                    <li><a href="/home/photon/save">Saved</a></li>
-                    <li><a href="/home/photon/fav">Favs</a></li>
-                    <li><a href="/home/photon/album">Albums</a></li>
-                    <li><a href="/home/photon/lock">Locked</a></li>
-                    <li><a href="/home/photon/bin">Bin</a></li>
-                </ul>
-            </div> */}
             <div className="main-content">
                 {/* <TextInputComponent/> */}
                 <Grid photos={photos} flag={3} />

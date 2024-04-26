@@ -12,7 +12,7 @@ import Save from './components/Home/PhotoN/Save';
 import Share from './components/Home/PhotoN/Share';
 
 import HomeMarketPlace from './components/Home/MarketPlace/HomeMarketPlace';
-import FollowFeed from './components/Home/MarketPlace/FollowFeed';
+// import FollowFeed from './components/Home/MarketPlace/FollowFeed';
 import PublicFeed from './components/Home/MarketPlace/PublicFeed';
 import Uploads from './components/Home/MarketPlace/Uploads';
 import PhotoDetails from './components/Home/PhotoN/PhotoView';
@@ -23,7 +23,7 @@ import PhotoDetailsLock from './components/Home/PhotoN/PhotoViewLock';
 import Signup from './components/Signup';
 import AlbumsView from './components/Home/PhotoN/Album/AlbumViews';
 import PhotoDetailsAlbum from './components/Home/PhotoN/PhotoViewAlbum';
-
+import GlobalUploadPhotoDetails from './components/Home/MarketPlace/GlobalUploadPhoto';
 class App extends Component {
 
   render() {
@@ -65,10 +65,11 @@ class App extends Component {
                   <>
                     <Routes>
                         <Route path="/" element={<HomeMarketPlace/>} />
-                        <Route path="/followfeed" element={<FollowFeed />} />
+                        {/* <Route path="/followfeed" element={<FollowFeed />} /> */}
                         <Route path="/publicfeed" element={<PublicFeed/>} />
                         <Route path="/publicfeed/photo-details/:id" element={<GlobalPhotoDetails/>} />
                         <Route path="/uploads" element={<Uploads />} />
+                        <Route path="/uploads/:id"  element = {< GlobalUploadPhotoDetails />}/>
                     </Routes>
                     </>
             } />
