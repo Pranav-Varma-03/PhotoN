@@ -5,7 +5,6 @@ import React from 'react';
 import PhotoDetailsBin from './PhotoViewBin.js' ;
 
 const Bin = () => {
-
   
     const [photos,setPhotos] = useState([])
 
