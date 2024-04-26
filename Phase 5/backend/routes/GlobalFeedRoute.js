@@ -6,7 +6,6 @@ router.get("/api/getGlobal", async (req, res) => {
   try {
     const allPhotos = await UploadModel.find({});
     
-    // Convert documents to a format that is more convenient for the frontend
     const photosData = allPhotos.map(photo => ({
       _id: photo._id,
       resolution: photo.resolution,
