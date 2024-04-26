@@ -28,8 +28,11 @@ const GlobalPhotoActionsContainer = ({photo}) => {
 
 
   const handleDownload = () => {
-    // Logic for downloading the photo
-    console.log('Downloading photo');
+    // console.log(id) ;
+    const downloadLink = document.createElement('a');
+    downloadLink.href = photo.photo; // Assuming `photo.photo` contains the base64 representation of the image
+    downloadLink.download = 'downloaded_photo.png'; // You can set the desired file name here
+    downloadLink.click();
   };
 
   const handleLikePhoto = () => {
@@ -70,7 +73,8 @@ const GlobalPhotoActionsContainer = ({photo}) => {
         <p>Resolution: {photo.resolution}</p>
         <p>Size: {photo.size}</p>
         <p>Type: {photo.type}</p>
-        <p>Displaying tags of the photo is remaining</p>
+        {/* <p>Displaying tags of the photo is remaining</p> */}
+        <p>Tags: {photo.tags.join(' ')}</p>
     </div>
 
       <div className="photo-actions">
