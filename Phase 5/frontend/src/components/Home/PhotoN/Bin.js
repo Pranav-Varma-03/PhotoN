@@ -6,6 +6,7 @@ import PhotoDetailsBin from './PhotoViewBin.js' ;
 
 const Bin = () => {
 
+  
     const [photos,setPhotos] = useState([])
 
     useEffect(() => {
