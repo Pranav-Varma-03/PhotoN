@@ -43,6 +43,20 @@ const Grid = ({ photos, flag, albumId}) => {
       </div>
     );
   }
+
+  if (flag === 6) {
+    gridContent = (
+      <div className="grid-container">
+        {photos.map(photo => (
+          <Link to={`/home/photon/share/photo-details/${photo._id}`} key={photo._id}>
+            <img src={`${photo.data}`} alt="Uploaded" />
+          </Link>
+        ))}
+      </div>
+    );
+  }
+
+
   if (flag === 2) {
     gridContent = (
       <div className="grid-container">
