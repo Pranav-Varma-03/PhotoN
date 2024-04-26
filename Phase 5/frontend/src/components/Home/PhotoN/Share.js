@@ -3,6 +3,7 @@ import Grid from "../../Grid.js";
 import axios from "axios";
 import React from 'react';
 import Cookies from "js-cookie";
+import PhotoDetailsShare from './PhotoViewShare.js' ;
 
 const Share = () => {
     const [photos,setPhotos] = useState([])
@@ -31,7 +32,7 @@ const Share = () => {
     return(
         <div className="center">
 
-        <Grid photos={photos} flag={1} />
+        <Grid photos={photos} flag={6} />
             
         </div>
     )

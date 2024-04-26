@@ -11,7 +11,7 @@ router.get("/api/get/view-photo-shared", async (req, res) => {
     try {
 
         // First, get the user ID based on the username
-        const user = await userModel.findOne({ username:"youtube" }); // change her eto username i think ther is problem with test
+        const user = await userModel.findOne({ username:username }); // change her eto username i think ther is problem with test
         // console.log(user);
 
         if (!user) {

@@ -24,24 +24,24 @@ const SharePhotoButton = ({ photoid }) => {
 
         const fetchData = () => {
             axios
-              .get('http://localhost:5001/api/photo/sharedUsers', {
-                params: {
-                  photoid: photoid
-                }
-              })
-              .then((res) => {
-                if (res.data.length > 0) {
-                  const usernamesArray = res.data.map(({ username }) => username);
-                  setSelectedUsers(usernamesArray);
-                }
-                setLoading(false);
-              })
-              .catch((err) => console.error(err));
-          }
-          
-          fetchData();
-        
-    }, [photoid,sharedUsers]);
+                .get('http://localhost:5001/api/photo/sharedUsers', {
+                    params: {
+                        photoid: photoid
+                    }
+                })
+                .then((res) => {
+                    if (res.data.length > 0) {
+                        const usernamesArray = res.data.map(({ username }) => username);
+                        setSelectedUsers(usernamesArray);
+                    }
+                    setLoading(false);
+                })
+                .catch((err) => console.error(err));
+        }
+
+        fetchData();
+
+    }, [photoid, sharedUsers]);
 
     const handleSave = () => {
         const photoId = photoid;
@@ -58,6 +58,42 @@ const SharePhotoButton = ({ photoid }) => {
             });
     };
 
+    const beforeAddValidate2 = async (tag) => {
+        try {
+            const res = await axios.post('http://localhost:5001/api/check-username', { username: tag });
+            if (res.data.exists === false) {
+                alert('Username not exists.');
+                return false; // Prevent adding the tag
+            }
+            return true; // Allow adding the tag
+        } catch (err) {
+            console.error('Error while checking username status:', err);
+            return false;
+        }
+    };
+
+    const beforeAddValidate = async (tag) => {
+        try {
+            const isValid = await beforeAddValidate2(tag);
+    
+            if (!isValid) {
+                // alert('Username does not exist.');
+                return false;
+            } else {
+                return true;
+            }
+        } catch (err) {
+            console.error('Error validating username:', err);
+            return false;
+        }
+    };
+    
+    // const beforeAddValidate =  (tag) => {
+    //     return false ;
+    // };
+
+
+
     return (
         <div>
             <button className="btn modal-trigger" data-target="SharePhotoModel">Share Photo</button>
@@ -67,6 +103,7 @@ const SharePhotoButton = ({ photoid }) => {
                     <TagsInput
                         value={selectedUsers}
                         onChange={handleSelectedUsers}
+                        beforeAddValidate={beforeAddValidate}
                         name="tags"
                         placeHolder="Enter User names separated by commas"
                     />

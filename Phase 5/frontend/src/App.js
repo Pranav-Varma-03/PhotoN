@@ -18,6 +18,7 @@ import Uploads from './components/Home/MarketPlace/Uploads';
 import PhotoDetails from './components/Home/PhotoN/PhotoView';
 import GlobalPhotoDetails from './components/Home/PhotoN/PhotoViewGlobal';
 import PhotoDetailsBin from './components/Home/PhotoN/PhotoViewBin';
+import PhotoDetailsShare from './components/Home/PhotoN/PhotoViewShare';
 import PhotoDetailsLock from './components/Home/PhotoN/PhotoViewLock';
 import Signup from './components/Signup';
 import AlbumsView from './components/Home/PhotoN/Album/AlbumViews';
@@ -47,6 +48,7 @@ class App extends Component {
                         <Route path="/" element={<HomePhotoN />} />
                         <Route path="/photo-details/:id" element={<PhotoDetails />} />
                         <Route path="/share" element={<Share />} />
+                        <Route path="/share/photo-details/:id" element={<PhotoDetailsShare />} />
                         <Route path="/save" element={<Save />} />
                         <Route path="/fav" element={<Fav />} />
                         <Route path="/album" element={<Album />} />

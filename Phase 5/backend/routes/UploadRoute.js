@@ -58,8 +58,9 @@ router.get("/api/getTagsPhotoSearch", async (req, res)=>{
 
   const arrayTags = response.split(' ').slice(0,5)
   console.log(arrayTags)
+  res.send(arrayTags);
 
-})
+}) 
 
 
 router.get("/api/get", async (req, res) => {
