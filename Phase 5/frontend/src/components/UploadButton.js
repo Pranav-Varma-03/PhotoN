@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { AiFillPlusCircle } from "react-icons/ai";
 import axios from "axios";
 import Cookies from "js-cookie";
-
+import { useNavigate } from "react-router";
 import M from "materialize-css";
 
 const Button = ({ setUpdateUI }) => {
@@ -12,6 +12,7 @@ const Button = ({ setUpdateUI }) => {
     M.AutoInit();
 }, []);
 
+  const navigate = useNavigate();
   const [type,setType] = useState("");
   const [resolution,setResolution] = useState("");
   const [size,setSize] = useState("");
@@ -39,8 +40,8 @@ const Button = ({ setUpdateUI }) => {
   const convertIntoBase64 = (e) => {
     const file = e.target.files[0];
     console.log("File Binarystring:",file) ;
-    if (file.size > 10000000) { // 10MB limit, for example
-      alert('File size exceeds maximum limit of 10MB.');
+    if (file.size > 70000) { 
+      alert('File size exceeds maximum limit.');
       return;
     }
     var reader = new FileReader();
@@ -68,6 +69,7 @@ const Button = ({ setUpdateUI }) => {
     };
 
     reader.readAsDataURL(e.target.files[0]);
+    alert("Image Submitted");
   };
 
   const handleChange = () => {
@@ -84,8 +86,13 @@ const Button = ({ setUpdateUI }) => {
       })
       .then((res) => {
         // console.log(res.data);
+        alert("Image Uploaded");
         setUpdateUI(res.data._id);
-        
+        const modalInstance = M.Modal.getInstance("modal1");
+        modalInstance.close();
+
+        // Reload page
+        window.location.reload();
       })
       .catch((err) => console.log(err));
   };
@@ -97,7 +104,8 @@ const Button = ({ setUpdateUI }) => {
       <div className="modal-content">
       <span className="black-text">Select Image to Upload</span>
       <div style={{ display: 'flex', justifyContent: 'flex-end' }}>
-        <label className="button" htmlFor="file_picker">
+        <div className="center">
+        <label className="modal-close waves-effect waves-green btn-flat" htmlFor="file_picker">
           Browse
           <input
             hidden
@@ -109,10 +117,11 @@ const Button = ({ setUpdateUI }) => {
             }}
           />
         </label>
+        </div>
       </div>
       </div>
       <div className="modal-footer">
-        <button onClick={handleChange}>Upload Image</button>
+        <a href="#!" className="modal-close waves-effect waves-green btn-flat" onClick={handleChange}>Upload Image</a>
       </div>
     </div>
   </div>

@@ -115,6 +115,7 @@ const UserProfile = () => {
                 <p>Loading...</p>
             ) : !authenticated ? (
                 <div className="container">
+                <p>Hello {ecookie}</p>
                     <form className="col s12" onSubmit={handleValidateFormSubmit}>
                         <div className="row">
                             <div className="input-field col s12">

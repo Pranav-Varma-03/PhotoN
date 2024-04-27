@@ -52,7 +52,7 @@ const MovetoAlbumButton = ({photoid,currAlbId})=> {
         console.log('Response:', res.data);
         alert('Photo moved to album successfully');
         // You can perform additional actions here if needed
-        window.history.back();
+        window.location.reload();
       })
       .catch((err) => {
         console.error('Error while moving photo to album:', err);

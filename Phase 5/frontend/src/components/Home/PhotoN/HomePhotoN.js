@@ -130,7 +130,7 @@ const HomePhotoN = () => {
                     )}
                 </div>
             )}
-            {mapPhotos.length > 0 && (
+            {mapPhotos.length > 0  && (
                 <MapContainer center={[mapPhotos[0].coordinates[0], mapPhotos[0].coordinates[1]]} zoom={5} style={{ height: '400px', width: '100%' }}>
                     <TileLayer
                         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"

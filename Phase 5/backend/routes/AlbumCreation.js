@@ -3,7 +3,6 @@ const {Router} = require('express')
 const AlbumUploadModel = require("../models/AlbumUploadModel.js");
 const router = Router();
 const bodyParser = require('body-parser');
-const app = express();
 const UploadModel = require("../models/UploadModel");
 const SharedAlbumModal = require("../models/SharedAlbumModel.js")
 

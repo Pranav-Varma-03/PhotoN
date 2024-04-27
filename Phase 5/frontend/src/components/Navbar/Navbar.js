@@ -74,7 +74,6 @@ const Navbar = () =>{
                 <ul>
                     <li ><a href="/home/photon" className={getNavLinkClass('/home/photon')}>All Photos</a></li>
                     <li ><a href="/home/photon/share" className={getNavLinkClass('/home/photon/share')}>Shared</a></li>
-                    <li ><a href="/home/photon/save" className={getNavLinkClass('/home/photon/save')}>Saved</a></li>
                     <li ><a href="/home/photon/fav" className={getNavLinkClass('/home/photon/fav')}>Favs</a></li>
                     <li ><a href="/home/photon/album" className={getNavLinkClass('/home/photon/album')}>Albums</a></li>
                     <li ><a href="/home/photon/lock" className={getNavLinkClass('/home/photon/lock')}>Locked</a></li>
