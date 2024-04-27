@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-
+import './grid.css'
 const Grid = ({ photos, flag, albumId}) => {
   let gridContent;
 
@@ -8,7 +8,7 @@ const Grid = ({ photos, flag, albumId}) => {
     gridContent = (
       <div className="grid-container">
         {photos.map(photo => (
-          <Link to={`/home/photon/photo-details/${photo._id}`} key={photo._id}>
+          <Link to={`/home/photon/photo-details/${photo._id}`} key={photo._id}  className= 'grid-item'>
             <img src={`${photo.data}`} alt="Uploaded" />
           </Link>
         ))}
@@ -22,7 +22,7 @@ const Grid = ({ photos, flag, albumId}) => {
         {photos.map(photo => {
           console.log("Rendering photo with ID:", photo._id);  // Log each photo ID
           return (
-            <Link to={`/home/marketplace/publicfeed/photo-details/${photo._id}`} key={photo._id}>
+            <Link to={`/home/marketplace/publicfeed/photo-details/${photo._id}`} key={photo._id} className= 'grid-item'>
               <img src={`${photo.photo}`} alt="Uploaded" />
             </Link>
           );
@@ -36,7 +36,7 @@ const Grid = ({ photos, flag, albumId}) => {
     gridContent = (
       <div className="grid-container">
         {photos.map(photo => (
-          <Link to={`/home/photon/bin/photo-details/${photo._id}`} key={photo._id}>
+          <Link to={`/home/photon/bin/photo-details/${photo._id}`} key={photo._id} className= 'grid-item'>
             <img src={`${photo.data}`} alt="Uploaded" />
           </Link>
         ))}
@@ -48,7 +48,7 @@ const Grid = ({ photos, flag, albumId}) => {
     gridContent = (
       <div className="grid-container">
         {photos.map(photo => (
-          <Link to={`/home/photon/share/photo-details/${photo._id}`} key={photo._id}>
+          <Link to={`/home/photon/share/photo-details/${photo._id}`} key={photo._id} className= 'grid-item'>
             <img src={`${photo.data}`} alt="Uploaded" />
           </Link>
         ))}
@@ -61,7 +61,7 @@ const Grid = ({ photos, flag, albumId}) => {
     gridContent = (
       <div className="grid-container">
         {photos.map(photo => (
-          <Link to={`/home/photon/lock/photo-details/${photo._id}`} key={photo._id}>
+          <Link to={`/home/photon/lock/photo-details/${photo._id}`} key={photo._id} className= 'grid-item'>
             <img src={`${photo.data}`} alt="Uploaded" />
           </Link>
         ))}
@@ -73,7 +73,7 @@ const Grid = ({ photos, flag, albumId}) => {
     gridContent = (
       <div className="grid-container">
         {photos.map(photo => (
-          <Link to={`/home/photon/album/photo-details/${albumId}/${photo._id}`} key={photo._id}>
+          <Link to={`/home/photon/album/photo-details/${albumId}/${photo._id}`} key={photo._id} className= 'grid-item'>
             <img src={`${photo.data}`} alt="Uploaded" />
           </Link>
         ))}

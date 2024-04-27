@@ -3,6 +3,7 @@ import Grid from "../../Grid.js";
 import axios from "axios";
 import React from 'react';
 import PhotoDetailsBin from './PhotoViewBin.js' ;
+import './css_to_photoN/bin.css'
 
 const Bin = () => {
   
@@ -25,7 +26,7 @@ const Bin = () => {
       }, []);
 
     return(
-        <div className="center">
+        <div className="main-content center">
 
         <Grid photos={photos} flag={1} />
             

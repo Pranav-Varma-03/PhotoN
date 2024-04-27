@@ -3,6 +3,7 @@ import Grid from "../../Grid.js";
 import axios from "axios";
 import React from "react";
 import Cookies from 'js-cookie';
+import './css_to_photoN/lock.css'
 
 const Lock = () => {
   const [password, setPassword] = useState("");
@@ -77,7 +78,7 @@ const Lock = () => {
   };
 
   return (
-    <div className="center">
+    <div className="main-content center">
       {loading ? (
               <p>Loading...</p>
             ):!authenticated ? (

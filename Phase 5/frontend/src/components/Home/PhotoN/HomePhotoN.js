@@ -7,6 +7,8 @@ import PhotoDetails from './PhotoView.js';
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import L from 'leaflet';
+import './css_to_photoN/homePhotoN.css'
+
 
 const HomePhotoN = () => {
 
@@ -74,17 +76,6 @@ const HomePhotoN = () => {
 
     return (
         <div className="center">
-            <div className="sidebar">
-                <ul>
-                    <li><a href="/home/photon">All Photos</a></li>
-                    <li><a href="/home/photon/share">Shared</a></li>
-                    <li><a href="/home/photon/save">Saved</a></li>
-                    <li><a href="/home/photon/fav">Favs</a></li>
-                    <li><a href="/home/photon/album">Albums</a></li>
-                    <li><a href="/home/photon/lock">Locked</a></li>
-                    <li><a href="/home/photon/bin">Bin</a></li>
-                </ul>
-            </div>
             <div className="main-content">
                 {/* <TextInputComponent/> */}
                 <input

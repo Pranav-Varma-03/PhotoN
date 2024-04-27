@@ -1,0 +1,25 @@
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Creates as many columns of 200px as can fit in the container */
+  grid-gap: 1px; /* Space between grid items */
+  width: 100%; /* Ensures the grid takes the full width of its container */
+  margin: auto; /* Centers the grid horizontally */
+  padding: 10px; /* Padding around the grid */
+  box-sizing: border-box; /* Includes padding in the width calculation */
+}
+
+.grid-item {
+  position: relative;
+  width: 100%; /* Full width of the grid column */
+  padding-top: 100%; /* Padding-top as a percentage creates a square aspect ratio */
+  overflow: hidden; /* Ensures only the part of the image that fits in the square is visible */
+}
+
+.grid-item img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); /* Centers the image within the grid item */
+  min-width: 100%;
+  min-height: 100%;
+}

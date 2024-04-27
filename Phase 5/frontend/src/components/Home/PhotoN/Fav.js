@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import Grid from "../../Grid.js";
 import axios from "axios";
 import React from 'react';
+import './css_to_photoN/fav.css'
 
 const Fav= () => {
 
@@ -25,7 +26,7 @@ const Fav= () => {
       }, []);
 
     return(
-        <div className="center">
+        <div className="main-content center">
 
         <Grid photos={photos} flag={0} />
             

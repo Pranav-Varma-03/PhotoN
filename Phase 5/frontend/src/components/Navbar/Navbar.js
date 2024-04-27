@@ -1,10 +1,17 @@
 import React,{ useState,useEffect } from "react";
-import { useNavigate } from "react-router";
+import { useNavigate, useLocation } from "react-router";
 import Cookies from "js-cookie";
 import UploadButton from "../UploadButton";
+import './navbar.css'
 const Navbar = () =>{
 
     const navigate = useNavigate();
+    const location = useLocation(); // This provides the current router location
+
+    // Logic to determine if the link should get the "active-link" class
+    const getNavLinkClass = (path) => {
+        return location.pathname === path ? 'active-link' : '';
+    };
     // const ecookie = Cookies.get('User');
     
     // console.log((parseInt(parseInt(ecookie)/10000)));
@@ -47,6 +54,7 @@ const Navbar = () =>{
 
 
     return(
+        <>
         <nav className="nav-wrapper red darken-3">
             <div className="container">
                 <ul id="nav-mobile" className="left hide-on-med-and-down">
@@ -62,6 +70,18 @@ const Navbar = () =>{
                 </ul>
             </div>
         </nav>
+        <div className="sidebar center">
+                <ul>
+                    <li ><a href="/home/photon" className={getNavLinkClass('/home/photon')}>All Photos</a></li>
+                    <li ><a href="/home/photon/share" className={getNavLinkClass('/home/photon/share')}>Shared</a></li>
+                    <li ><a href="/home/photon/save" className={getNavLinkClass('/home/photon/save')}>Saved</a></li>
+                    <li ><a href="/home/photon/fav" className={getNavLinkClass('/home/photon/fav')}>Favs</a></li>
+                    <li ><a href="/home/photon/album" className={getNavLinkClass('/home/photon/album')}>Albums</a></li>
+                    <li ><a href="/home/photon/lock" className={getNavLinkClass('/home/photon/lock')}>Locked</a></li>
+                    <li ><a href="/home/photon/bin" className={getNavLinkClass('/home/photon/bin')}>Bin</a></li>
+                </ul>
+            </div>
+        </>
     )
 }
 

@@ -3,10 +3,7 @@ import axios from "axios";
 import M from "materialize-css";
 import Cookies from "js-cookie";
 import { useNavigate } from "react-router";
-
-
-
-
+import './css_to_photoN/album.css'
 const AlbumManager = () => {
   const [newAlbumName, setNewAlbumName] = useState('');
   const [albums, setAlbums] = useState([]);
@@ -66,7 +63,7 @@ const AlbumManager = () => {
           Create Album
         </button>
       </div>
-      <div>
+      <div className="input-field">
         <h5>Existing Albums:</h5>
         {albums.length > 0 ? (
           albums.map((album, index) => (

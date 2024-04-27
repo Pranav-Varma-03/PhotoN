@@ -4,6 +4,7 @@ import axios from "axios";
 import React from 'react';
 import Cookies from "js-cookie";
 import PhotoDetailsShare from './PhotoViewShare.js' ;
+import './css_to_photoN/share.css'
 
 const Share = () => {
     const [photos,setPhotos] = useState([])
@@ -34,7 +35,7 @@ const Share = () => {
       };
 
       return (
-        <div className="center">
+        <div className="main-content center">
           <button onClick={redirectToAlbum}>
             View Shared Albums
           </button>

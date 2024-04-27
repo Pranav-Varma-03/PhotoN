@@ -1,0 +1,70 @@
+.sidebar{
+    color: blue;
+    font-size: 100;
+    /* Set the height to 100% of the viewport */
+    height: 90%; 
+    /* Set the width to occupy 10 to 15 percent of the viewport */
+    width: 15%; /* Adjust this value as needed */
+    /* Set the position to fixed to keep it fixed relative to the viewport */
+    position: fixed; 
+    /* Set the sidebar to the left edge of the viewport */
+    left: 0; 
+    /* Set the top position to 0 */
+    bottom: 0; 
+    /* Customize the background color of the sidebar */
+    background-color: #f0f0f0; 
+    /* Ensure content overflows horizontally are hidden */
+    overflow-x: hidden; 
+    /* Add padding to the top */
+    padding-top: 20px; 
+}
+.sidebar ul li a.current{
+    display: block;
+    background-color: rgba(93, 231, 244, 0.868);
+    color:  #070707; 
+    border-radius: 25px;
+}
+
+.sidebar ul li a.current:hover{
+    text-decoration: underline;
+    background-color:rgba(93, 231, 244, 0.868);
+}
+
+.sidebar ul li a {
+    display: block; 
+    color: #070707; 
+    font-weight:normal;
+    font-size: 16px; 
+    /* Add box styling */
+    padding: 10px; /*Adjust padding as needed*/
+    /* border: 1px solid #ccc; /* Add border */
+    /*border-radius: 5px; Add border radius for rounded corners */
+    margin-bottom: 5px; /* Add margin bottom for spacing between links */
+}
+.sidebar ul li a:hover{
+    background-color: rgb(212, 212, 212);
+    border-radius: 25px;
+    /* border-bottom-right-radius: 25px; */
+    text-decoration: underline;
+}
+.active-link {
+    background-color: rgb(64, 210, 233);
+    border-radius: 25px; /* Text color of the active link */
+}
+.active-link:hover{
+    background-color: rgb(114, 231, 246) !important;
+    border-radius: 25px;
+    text-decoration: underline;
+}
+.nav-wrapper {
+    position: fixed;   /* Fixed position */
+    top: 0;            /* Stick to the top */
+    left: 0;           /* Align to the left */
+    width: 100%;       /* Take full width */
+    z-index: 1000;     /* Ensure it's above other items */
+    margin-bottom: 100px;
+}
+.body{
+    padding-top: 60px;
+}
+
