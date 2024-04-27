@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
 import Grid from '../../../Grid';
+import ShareAlbumButton from '../../../ShareAlbumButton';
 
 const AlbumsView = () => {
     const { id } = useParams();
@@ -69,7 +70,7 @@ const AlbumsView = () => {
          <div className='container'>
                 <button onClick={handleRemoveAlbum}>Remove Album</button>
                 <button onClick={handleDeleteAlbum}>Delete Album</button>
-                <button onClick={handleShareAlbum}>Share Album</button>
+                <ShareAlbumButton albumid={id}/>
             </div>
             <div className='center'>
                 <Grid photos={photos} flag={4} albumId= {id}/>
