@@ -22,8 +22,10 @@ const HomePhotoN = () => {
     const [mapPhotos, setMapPhotos] = useState([]);
 
     useEffect(() => {
-        axios
-            .get("http://localhost:5001/api/get", {
+
+        const fetchData = ()=>{
+            axios
+            .get("http://localhost:5001/api/get",{
                 params: {
                     username: ecookie,
                 }
@@ -50,7 +52,11 @@ const HomePhotoN = () => {
                 setLoading(false);
             })
             .catch((err) => console.log(err));
-    }, []); // Include ecookie in dependency array
+        }
+
+        fetchData();
+        
+    }, [photos]); // Include ecookie in dependency array
 
     const aggregatePhotosByLocation = (photos) => {
         const locations = {};

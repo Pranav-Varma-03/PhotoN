@@ -7,6 +7,9 @@ const app = express();
 const { GoogleGenerativeAI } = require("@google/generative-ai");
 const fs = require("fs");
 app.use(bodyParser.json())
+app.use(bodyParser.json({ limit: '50mb' }));
+app.use(bodyParser.urlencoded({ limit: '50mb', extended: true }));
+
 
 const genAI = new GoogleGenerativeAI("AIzaSyBg2hgX3mnoh4vd0JqCTDnIqkFndNHc2hU");
 
@@ -109,7 +112,7 @@ function removeSubstringUntilFirstComma(inputString) {
 router.post("/api/save", async(req,res)=>{
   const {photo, ownerUserId,resolution,size,type, gpsData} = req.body
   const gptstr = await removeSubstringUntilFirstComma(photo)
-  console.log(gpsData,"Helooooooooooooooooooo")
+  // console.log(gpsData,"Helooooooooooooooooooo")
   const a = await run_image_tags(gptstr, type)
   const tag_array = extractFirstFiveWords(a)
   const tags = tag_array[0].split(' ');
