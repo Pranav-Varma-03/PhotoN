@@ -41,11 +41,26 @@ const HomePhotoN = () => {
                 }));
                 setPhotos(processedPhotos);
                 setFilteredPhotos(processedPhotos);
-                setMapPhotos(processedPhotos.filter(photo => photo.coordinates.length === 2));
+                setMapPhotos(aggregatePhotosByLocation(processedPhotos));
                 console.log(photos[0])
             })
             .catch((err) => console.log(err));
     }, [photos]);
+
+    const aggregatePhotosByLocation = (photos) => {
+        const locations = {};
+        photos.forEach(photo => {
+            const coordKey = photo.coordinates.join(','); 
+            if (!locations[coordKey]) {
+                locations[coordKey] = {
+                    coordinates: photo.coordinates,
+                    photos: []
+                };
+            }
+            locations[coordKey].photos.push(photo);
+        });
+        return Object.values(locations);
+    };
 
     const handleFilter = () => {
         const newFilteredPhotos = photos.filter(photo =>
@@ -95,21 +110,22 @@ const HomePhotoN = () => {
                         <Grid photos={filteredPhotos} flag={5} />
                     )}
                 </div>
-                 {mapPhotos.length > 0 && (
-                <MapContainer center={[mapPhotos[0].coordinates[0], mapPhotos[0].coordinates[1]]} zoom={13} style={{ height: '400px', width: '100%' }}>
-                    <TileLayer
-                        url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-                    />
-                    {mapPhotos.map((photo, idx) => (
-                        <Marker key={idx} position={photo.coordinates} icon={photo.icon}>
-                            <Popup>
-                            <img src= {photo.data} alt={photo._id} style={{ width: '100px', height: 'auto' }}/>
-                                {/* A photo from {photo.name || 'Unknown Location'} */}
-                            </Popup>
-                        </Marker>
-                    ))}
-                </MapContainer>
-            )}
+                {mapPhotos.length > 0 && (
+                    <MapContainer center={[mapPhotos[0].coordinates[0], mapPhotos[0].coordinates[1]]} zoom={13} style={{ height: '400px', width: '100%' }}>
+                        <TileLayer
+                            url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+                        />
+                        {mapPhotos.map((location, idx) => (
+                            <Marker key={idx} position={location.coordinates} icon={location.photos[0].icon}>
+                                <Popup>
+                                    {location.photos.map((photo, index) => (
+                                        <img key={index} src={photo.data} alt={photo._id} style={{ width: '100px', height: 'auto' }} />
+                                    ))}
+                                </Popup>
+                            </Marker>
+                        ))}
+                    </MapContainer>
+                )}
             </div>
 
         </div>

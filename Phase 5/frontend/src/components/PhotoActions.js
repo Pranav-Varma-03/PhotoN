@@ -43,6 +43,7 @@ const PhotoActionsContainer = ({photo}) => {
           console.log(' status updated successfully');
           setIsBin(!isCurrentlyBin); // Update the local state with the new favorite status
           navigate(-1); // Equivalent to goBack()
+          // navigate(-1); 
         })
         .catch((err) => {
           console.error('Error updating Bin status:', err);

@@ -66,7 +66,7 @@ router.get("/api/getTagsPhotoSearch", async (req, res)=>{
 router.get("/api/get", async (req, res) => {
   const {username} = req.query;
 
-  try {
+  try { 
     const allPhotos = await UploadModel.find({ binFlag: 0, hiddenFolderFlag: 0,ownerUserId:username }).sort({ createdAt: "descending" });
     // console.log(allPhotos);
     const photosData = allPhotos.map(photo => ({
@@ -107,9 +107,9 @@ function removeSubstringUntilFirstComma(inputString) {
 }
 
 router.post("/api/save", async(req,res)=>{
-  const {photo, ownerUserId,resolution,size,type} = req.body
-  const gptstr = removeSubstringUntilFirstComma(photo)
-
+  const {photo, ownerUserId,resolution,size,type, gpsData} = req.body
+  const gptstr = await removeSubstringUntilFirstComma(photo)
+  console.log(gpsData,"Helooooooooooooooooooo")
   const a = await run_image_tags(gptstr, type)
   const tag_array = extractFirstFiveWords(a)
   const tags = tag_array[0].split(' ');
@@ -122,7 +122,8 @@ router.post("/api/save", async(req,res)=>{
       size,
       type,
       photo, 
-      tags: firstFiveTags
+      tags: firstFiveTags,
+      gpsData: gpsData, 
     })
       .then((data) => {
         console.log("Photo Uploaded Successfully");

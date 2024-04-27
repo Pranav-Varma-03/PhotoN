@@ -16,6 +16,25 @@ const Button = ({ setUpdateUI }) => {
   const [resolution,setResolution] = useState("");
   const [size,setSize] = useState("");
   const [base64,setBase64] = useState("");
+  const [gpsData, setGpsData] = useState("");
+
+  const getGPSData = () => {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(
+        (position) => {
+          
+          const { latitude, longitude } = position.coords;
+          console.log("Location is: ",latitude, longitude)
+          setGpsData(`${latitude} ${longitude}`);
+        },
+        (error) => {
+          console.error("Error Code = " + error.code + " - " + error.message);
+        }
+      );
+    } else {
+      alert("Geolocation is not supported by this browser.");
+    }
+  };
 
   const convertIntoBase64 = (e) => {
     const file = e.target.files[0];
@@ -30,20 +49,21 @@ const Button = ({ setUpdateUI }) => {
       var image = new Image();
       image.src = reader.result;
 
-      image.onload = () => {
+      image.onload = async () => {
         var type = e.target.files[0].type; // Get the MIME type of the file
         var resolution = image.width + 'x' + image.height; // Get the resolution of the image
         var size = e.target.files[0].size;
 
         console.log('Type:', type);
         setType(type);
-        // console.log('Resolution:', resolution);
-        setResolution(resolution);
-        // console.log('Base64 Data:', reader.result);
-        setBase64(reader.result);
-        // console.log(`inside fn64: ${base64}`)
-        setSize(size);
         
+        setResolution(resolution);
+        
+        setBase64(reader.result);
+        
+        setSize(size);
+        const a = await getGPSData();
+        console.log("Location data is: ", gpsData)
       };
     };
 
@@ -51,23 +71,8 @@ const Button = ({ setUpdateUI }) => {
   };
 
   const handleChange = () => {
-    // e.preventDefault();
 
-    const ecookie = Cookies.get('id'); //ownerId
-    // const formData = new FormData();    
-
-    
-    // console.log(`image value: ${base64}`)
-
-    // formData.append("photo", base64);
-    // formData.append('ownerUserId', ecookie);
-    // formData.append('resolution', resolution);
-    // formData.append('size', size);
-    // formData.append('type', type);
-    
-    // console.log(e.target.files[0])
-    // console.log(formData)
-
+    const ecookie = Cookies.get('id'); 
     axios
       .post("http://localhost:5001/api/save", {
           photo: base64,
@@ -75,6 +80,7 @@ const Button = ({ setUpdateUI }) => {
           resolution: resolution,
           size: size,
           type: type,
+          gpsData: gpsData
       })
       .then((res) => {
         // console.log(res.data);
@@ -83,25 +89,6 @@ const Button = ({ setUpdateUI }) => {
       })
       .catch((err) => console.log(err));
   };
-
-  // return (
-  //   <label className="button" htmlFor="file_picker">
-  //   UPLOAD IMAGE
-  //     <input
-  //       hidden
-  //       type="file"
-  //       name="file_picker"
-  //       id="file_picker"
-  //       onChange={(e) => {
-  //         convertIntoBase64(e);
-  //         handleChange();
-  //       }}
-  //       // onChange={convertIntoBase64}
-  //     />
-  //     {/* <button onClick={handleChange}>Upload Image</button> */}
-  //   </label>
-  // );
-
   return (
     <div>
     <a className="waves-effect waves-light btn modal-trigger" href="#modal1">UPLOAD IMAGE</a>

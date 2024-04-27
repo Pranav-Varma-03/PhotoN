@@ -89,18 +89,6 @@ router.get("/api/getGlobalUploads/:id", async (req, res) =>{
     console.error(error);
     res.status(500).send("An error occurred while fetching photos.");
   }
-
-
-
 })
-
-
-
-
-
-
-
-
-
 
 module.exports = router;
