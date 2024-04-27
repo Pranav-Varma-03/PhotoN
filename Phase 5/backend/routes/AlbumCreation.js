@@ -5,6 +5,7 @@ const router = Router();
 const bodyParser = require('body-parser');
 const app = express();
 const UploadModel = require("../models/UploadModel");
+
 router.get("/api/getAlbums", async (req, res) => {
   const {ownerUserId} = req.query;
   console.log("Owner",ownerUserId)
@@ -215,7 +216,8 @@ router.get("/api/get/albumpics", async (req, res) => {
 
     const allPhotos = await UploadModel.find({
       _id: { $in: album.photoIDs },
-      binFlag: 0 
+      binFlag: 0, 
+      hiddenFolderFlag: 0
     });
     // Convert documents to a format that is more convenient for the frontend
     const photosData = allPhotos.map(photo => ({

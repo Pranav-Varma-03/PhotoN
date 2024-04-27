@@ -19,6 +19,7 @@ const PhotoDetailsAlbum = () => {
             .get(`http://localhost:5001/api/photo-details/${photoId}`)
             .then((res) => {
                 setPhoto(res.data); 
+                console.log()
             })
             .catch(err => console.error(err));
     }, [photoId,photo]);

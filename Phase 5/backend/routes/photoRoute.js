@@ -150,7 +150,7 @@ router.get("/api/bin/photo-details/:id", async (req, res) => {
 router.get("/api/share/photo-details/:id", async (req, res) => {
   try {
     const { id } = req.params;
-    const ViewBinphoto = await UploadModel.find({ _id: id });
+    const ViewBinphoto = await UploadModel.find({ binFlag: 0, hiddenFolderFlag: 0,_id: id });
 
     const photosDataBin = ViewBinphoto.map(photo => ({
       _id: photo._id,
