@@ -2,11 +2,14 @@ import { useEffect, useState } from "react";
 import Grid from "../../Grid.js";
 import axios from "axios";
 import React from "react";
+import Cookies from 'js-cookie';
 
 const Lock = () => {
   const [password, setPassword] = useState("");
   const [authenticated, setAuthenticated] = useState(false);
   const [photos, setPhotos] = useState([]);
+  const ecookie = Cookies.get('id');
+  const [loading, setLoading] = useState(false); 
 
   useEffect(() => {
     if (authenticated) {
@@ -33,16 +36,51 @@ const Lock = () => {
   const handleFormSubmit = (e) => {
     e.preventDefault();
     // Here you can add your password validation logic
-    if (password === "LOCK") {
-      setAuthenticated(true);
-    } else {
-      alert("Incorrect password!");
+      // Here you can add your password validation logic
+      setLoading(true) 
+      const getData = async () => {
+        try {
+            await axios.get(`http://localhost:5001/api/auth/lock`, {
+                params: {
+                    username: ecookie,
+                    password: password,
+                }
+            }).then(res => {
+              console.log("Ok")
+                console.log(res.data)
+                const { valid } = res.data;
+
+                if (valid) {
+                    setAuthenticated(true);
+                } else {
+                    alert('Incorrect Credentials, Please Retry');
+                }
+            })
+
+        } catch (error) {
+            console.error('Validation error:', error);
+        }
+        setPassword("")
+        console.log(authenticated)
+        setLoading(false); // Set loading back to false after validation
     }
+
+    getData();
+    
+    
+    
+    // if (password === "LOCK") {
+    //   setAuthenticated(true);
+    // } else {
+    //   alert("Incorrect password!");
+    // }
   };
 
   return (
     <div className="center">
-      {!authenticated ? (
+      {loading ? (
+              <p>Loading...</p>
+            ):!authenticated ? (
         <div className="container">
         <form className="col s12" onSubmit={handleFormSubmit}>
             <div className="row">

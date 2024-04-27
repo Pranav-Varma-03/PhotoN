@@ -25,47 +25,47 @@ const Login = () => {
 
         e.preventDefault();
 
-        // const getData = async () => {
-        //     try {
-        //         await axios.get(`/auth`, {
-        //             params: {
-        //                 email: id,
-        //                 password: password
-        //             }
-        //         }).then(res => {
+        const getData = async () => {
+            try {
+                await axios.get(`http://localhost:5001/api/auth`, {
+                    params: {
+                        username: id,
+                        password: password,
+                    }
+                }).then(res => {
 
 
-        //             console.log(res.data[0].valid);
+                    console.log(res.data[0].valid);
 
-        //             if (res.data[0].valid) {
+                    if (res.data[0].valid) {
 
-        //                 navigate('/home/photon');
+                        navigate('/home/photon');
 
-        //                 Cookies.set('id', id);
+                        Cookies.set('id', id);
 
-        //             } else {
-        //                 alert('Incorrect Credentials, Please Retry');
-        //             }
+                    } else {
+                        alert('Incorrect Credentials, Please Retry');
+                    }
 
-        //         })
+                })
 
-        //     } catch (error) {
+            } catch (error) {
 
-        //     }
+            }
+        }
+
+        getData();
+
+        // if(id === "test" & password === "test"){
+        //     navigate('/home/photon');
+        //     Cookies.set('id', id);
+        // }
+        // else{
+        //     alert('Incorrect Credentials, Please Retry');
         // }
 
-        // getData();
-
-        if(id === "test" & password === "test"){
-            navigate('/home/photon');
-            Cookies.set('id', id);
-        }
-        else{
-            alert('Incorrect Credentials, Please Retry');
-        }
-
-        console.log(`User Id: ${id}`);
-        // console.log(valid);
+        // console.log(`User Id: ${id}`);
+        // // console.log(valid);
 
 
     }

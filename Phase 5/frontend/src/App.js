@@ -26,6 +26,7 @@ import AlbumsView from './components/Home/PhotoN/Album/AlbumViews';
 import AlbumsViewShare from './components/Home/PhotoN/Album/AlbumViewShare';
 import PhotoDetailsAlbum from './components/Home/PhotoN/PhotoViewAlbum';
 import GlobalUploadPhotoDetails from './components/Home/MarketPlace/GlobalUploadPhoto';
+import UserProfile from './components/UserProfile';
 class App extends Component {
   render() {
     return (
@@ -42,7 +43,7 @@ class App extends Component {
           {/* Add a route for photo details */}
 
           <Route element={<ProtectedRoute />}>
-
+          <Route path='/profile' element={<UserProfile />} />
           <Route path="/home/photon/*" element={
                     <>
                     <Routes>
