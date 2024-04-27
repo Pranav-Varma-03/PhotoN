@@ -2,16 +2,21 @@ import { useEffect, useState } from "react";
 import Grid from "../../Grid.js";
 import axios from "axios";
 import React from 'react';
+import Cookies from "js-cookie";
 import './css_to_photoN/fav.css'
 
 const Fav= () => {
 
     const [photos,setPhotos] = useState([])
-    
+    const ecookie = Cookies.get('id');
 
     useEffect(() => {
         axios
-          .get("http://localhost:5001/api/get/fav")
+          .get("http://localhost:5001/api/get/fav",{
+            params:{
+              username: ecookie,
+            }
+          })
           .then((res) => {
             console.log(res.data);
 

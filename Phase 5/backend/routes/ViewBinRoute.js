@@ -4,9 +4,10 @@ const UploadModel = require("../models/UploadModel");
 const router = Router();
 
 router.get("/api/get/bin", async (req, res) => {
+    const {username} = req.query;
     try {
       // Modify the find query to filter for photos where binFlag is set to 1
-      const binPhotos = await UploadModel.find({ binFlag: 1 }).sort({ createdAt: "descending" });
+      const binPhotos = await UploadModel.find({ binFlag: 1,ownerUserId:username }).sort({ createdAt: "descending" });
   
       // Convert documents to a format that is more convenient for the frontend
       const photosData = binPhotos.map(photo => ({

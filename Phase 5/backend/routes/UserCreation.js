@@ -3,11 +3,7 @@ const bcrypt = require("bcrypt");
 // const uploadMiddleware = require("../middlewares/upload");
 const UserUploadModel = require("../models/UserUploadModel.js");
 const router = Router();
-
-// router.get("/api/get", async (req, res) => {
-//     const allPhotos = await UploadModel.find().sort({ createdAt: "descending" });
-//     res.send(allPhotos);
-//   });   
+ 
 
 router.put("/api/user/updateLockPwd/:username", async (req, res) => {
 

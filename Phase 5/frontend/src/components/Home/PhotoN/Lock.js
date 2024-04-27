@@ -11,11 +11,14 @@ const Lock = () => {
   const [photos, setPhotos] = useState([]);
   const ecookie = Cookies.get('id');
   const [loading, setLoading] = useState(false); 
-
   useEffect(() => {
     if (authenticated) {
       axios
-        .get("http://localhost:5001/api/get/lock")
+        .get("http://localhost:5001/api/get/lock",{
+          params:{
+            username: ecookie,
+          }
+        })
         .then((res) => {
           console.log(res.data);
 

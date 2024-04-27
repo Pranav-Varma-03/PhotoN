@@ -6,8 +6,10 @@ const bodyParser = require('body-parser');
 const app = express();
 const UploadModel = require("../models/UploadModel");
 router.get("/api/getAlbums", async (req, res) => {
+  const {ownerUserId} = req.query;
+  console.log("Owner",ownerUserId)
   try {
-    const allAlbums = await AlbumUploadModel.find({is_folder: 0}).sort({ vaultName: "ascending" });
+    const allAlbums = await AlbumUploadModel.find({ is_folder: 0,ownerUserId:ownerUserId }).sort({ vaultName: "ascending" });
     
     // Convert documents to a format that is more convenient for the frontend
     const albumsData = allAlbums.map(album => ({
@@ -27,12 +29,13 @@ router.get("/api/getAlbums", async (req, res) => {
 
 router.get("/api/getAlbums/withoutimage", async (req, res) => {
 
-  const { photoId } = req.query;
+  const { photoId,ownerUserId } = req.query;
 
   try {
 
     const allAlbums = await AlbumUploadModel.find({
       is_folder: 0,
+      ownerUserId:ownerUserId,
       photoIDs: { $nin: [photoId] }
     }).sort({ vaultName: "ascending" });
 

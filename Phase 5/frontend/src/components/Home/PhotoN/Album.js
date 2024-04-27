@@ -5,6 +5,7 @@ import Cookies from "js-cookie";
 import { useNavigate } from "react-router";
 import './css_to_photoN/album.css'
 const AlbumManager = () => {
+  const ecookie = Cookies.get('id');
   const [newAlbumName, setNewAlbumName] = useState('');
   const [albums, setAlbums] = useState([]);
   const navigate = useNavigate();
@@ -16,7 +17,11 @@ const AlbumManager = () => {
 
   // Function to fetch albums
   const fetchAlbums = () => {
-    axios.get("http://localhost:5001/api/getAlbums")
+    axios.get("http://localhost:5001/api/getAlbums",{
+      params:{
+        ownerUserId:ecookie,
+      }
+    })
       .then((response) => {
         setAlbums(response.data);
       })
@@ -30,7 +35,6 @@ const AlbumManager = () => {
       return;
     }
     console.log(newAlbumName) ;
-    const ecookie = Cookies.get('id');
     axios.post("http://localhost:5001/api/album", {
         ownerUserId: ecookie,
         vaultName: newAlbumName,

@@ -64,9 +64,11 @@ router.get("/api/getTagsPhotoSearch", async (req, res)=>{
 
 
 router.get("/api/get", async (req, res) => {
+  const {username} = req.query;
+
   try {
-    const allPhotos = await UploadModel.find({ binFlag: 0, hiddenFolderFlag: 0 }).sort({ createdAt: "descending" });
-    
+    const allPhotos = await UploadModel.find({ binFlag: 0, hiddenFolderFlag: 0,ownerUserId:username }).sort({ createdAt: "descending" });
+    // console.log(allPhotos);
     const photosData = allPhotos.map(photo => ({
       _id: photo._id,
       dateTime: photo.dateTime,
@@ -80,8 +82,8 @@ router.get("/api/get", async (req, res) => {
       favoritesFlag: photo.favoritesFlag,
       tags: photo.tags
     }));
-
-    res.send(photosData);
+    
+    res.send(photosData);               
   } catch (error) {
     console.error(error);
     res.status(500).send("An error occurred while fetching photos.");

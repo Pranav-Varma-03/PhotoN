@@ -59,9 +59,8 @@ router.put("/api/photo/:id/favorite", async (req, res) => {
 
   try {
     // Find the photo by ID
-    const photo = await SharedPhotoModal.findById(id);
-
-    console.log(photo);
+    const photo = await UploadModel.findById(id);
+    console.log(isFavorite);
 
     if (!photo) {
       return res.status(404).send("Photo not found");

@@ -2,10 +2,11 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { ReactSearchAutocomplete } from 'react-search-autocomplete'
 import M from "materialize-css";
-
+import Cookies from "js-cookie";
 import Select from 'react-select'
 
 const AddtoAlbumButton = (photoId)=> {
+  const ecookie = Cookies.get('id');
   const [albumId,setAlbumId] = useState("")
   const [albums, setAlbums] = useState([]);
 
@@ -17,6 +18,7 @@ const AddtoAlbumButton = (photoId)=> {
     const fetchAlbums = () => {
       axios.get("http://localhost:5001/api/getAlbums/withoutimage",{
         params: {
+          ownerUserId:ecookie,
           photoId: photoId.photoid
         }
       }).then((response) => {

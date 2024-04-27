@@ -8,19 +8,22 @@ import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import L from 'leaflet';
 import './css_to_photoN/homePhotoN.css'
-
+import Cookies from "js-cookie";
 
 const HomePhotoN = () => {
-
+    const ecookie = Cookies.get('id');
     const [photos, setPhotos] = useState([]);
     const [tagFilter, setTagFilter] = useState('');
     const [filteredPhotos, setFilteredPhotos] = useState([]);
     const [searchText, setSearchText] = useState('');
     const [mapPhotos, setMapPhotos] = useState([]);
-
     useEffect(() => {
         axios
-            .get("http://localhost:5001/api/get")
+            .get("http://localhost:5001/api/get",{
+                params: {
+                    username: ecookie,
+                }
+            })
             .then((res) => {
                 console.log(res.data);
                 // Process the data if necessary, e.g., convert it to URLs or keep as base64

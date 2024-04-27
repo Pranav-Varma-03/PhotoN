@@ -105,7 +105,7 @@ const PhotoActionsFavContainer = ({photo}) => {
         <button onClick={handleChangeFavorite} style={{ backgroundColor: photo[0].favoritesFlag ? 'red' : 'transparent' }}>
           {photo[0].favoritesFlag ? 'Unfavorite' : 'Favorite'}
         </button>
-        <button onClick={handleMakeHidden}>Make Hidden</button>
+        <button onClick={handleMakeHidden}>Make UnHidden</button>
         <button onClick={handleDelete}>Delete</button>
       </div>
     </div>
