@@ -37,8 +37,10 @@ const Fav = () => {
         <div className="main-content center">
             {loading ? (
                 <h3>Loading...</h3> // Display loading message
-            ) : (
+            ) : photos.length > 0 ?(
                 <Grid photos={photos} flag={0} /> // Render Grid component when data is ready
+            ): (
+              <h3>No Photos</h3>
             )}
         </div>
     );

@@ -34,13 +34,15 @@ const Bin = () => {
       }, [ecookie]);
 
     return (
-        <div className="main-content center">
-            {loading ? (
-                <h3>Loading...</h3> // Display loading message
-            ) : (
-                <Grid photos={photos} flag={1} /> // Render Grid component when data is ready
-            )}
-        </div>
+      <div className="main-content center">
+      {loading ? (
+          <h3>Loading...</h3> // Display loading message
+      ) : photos.length > 0 ? (
+          <Grid photos={photos} flag={1} /> // Render Grid component when data is ready and photos array is not empty
+      ) : (
+          <h3>No Photos</h3> // Display "No Photos" message when photos array is empty
+      )}
+  </div>
     );
 }
 

@@ -57,7 +57,11 @@ const AlbumsViewShare = () => {
                 <button onClick={handleRemoveAlbum}>Remove Album</button>
             </div>
             <div className='center'>
-                <Grid photos={photos} flag={8} albumId= {id}/>
+                {photos.length > 0 ? (
+                  <Grid photos={photos} flag={8} albumId= {id}/>
+                ):(
+                  <h3>No Photos</h3>
+                )}
             </div>
         </div>
     )

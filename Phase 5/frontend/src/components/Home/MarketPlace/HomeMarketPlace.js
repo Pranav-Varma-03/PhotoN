@@ -41,7 +41,14 @@ const HomeMarketPlace = () => {
             </ul>
             </div>
             <div className="main-content">
-            <Grid photos={photos} flag={3} />
+            {
+                photos.length > 0 ? (
+                    <Grid photos={photos} flag={3} />
+                ):(
+                    <div> 
+                    <h3> No Photos</h3></div>
+                )
+            }
             </div>
         </div>
         

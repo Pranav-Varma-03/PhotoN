@@ -9,7 +9,6 @@ import ShareAlbum from './components/Home/PhotoN/AlbumShare';
 import Bin from './components/Home/PhotoN/Bin';
 import Fav from './components/Home/PhotoN/Fav';
 import Lock from './components/Home/PhotoN/Lock';
-import Save from './components/Home/PhotoN/Save';
 import Share from './components/Home/PhotoN/Share';
 
 import HomeMarketPlace from './components/Home/MarketPlace/HomeMarketPlace';
@@ -53,7 +52,6 @@ class App extends Component {
                         <Route path="/share/album" element={<ShareAlbum />} />
                         <Route path="/share/album/:id" element={<AlbumsViewShare />} />
                         <Route path="/share/photo-details/:id" element={<PhotoDetailsShare />} />
-                        <Route path="/save" element={<Save />} />
                         <Route path="/fav" element={<Fav />} />
                         <Route path="/album" element={<Album />} />
                         <Route path="/album/:id" element={<AlbumsView />} />

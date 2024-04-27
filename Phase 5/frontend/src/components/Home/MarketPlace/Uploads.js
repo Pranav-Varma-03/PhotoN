@@ -45,7 +45,14 @@ const Uploads = () => {
             </div>
             
             <div>
-                <Grid photos={photos} flag={5} />
+                {
+                    photos.length > 0 ? (
+                        <Grid photos={photos} flag={5} />
+                    ):(
+                        <h3>No Photos</h3>
+                    )
+                }
+                
             </div>
 
         </div>

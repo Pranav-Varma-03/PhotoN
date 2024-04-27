@@ -64,7 +64,7 @@ const AlbumsView = () => {
             data: { albumId: id },
           })
           .then((res) => {
-            alert('Removed Image Successsfully');
+            alert('Deleted Album Successsfully');
             window.history.back(); // Redirect to previous page
             // You can perform additional actions here if needed
           })
@@ -80,17 +80,12 @@ const AlbumsView = () => {
             albumId: id,
           })
           .then((res) => {
-            alert('binFlag set successfully');
             handleRemoveAlbum();
           })
           .catch((err) => {
             console.error('Error setting binFlag:', err);
-            alert('Error setting binFlag');
+            alert('Error Removing Photos');
           });
-    };
-
-    const handleShareAlbum = () => {
-        console.log('Sharing photo');
     };
 
     return(
@@ -101,7 +96,11 @@ const AlbumsView = () => {
                 <ShareAlbumButton albumid={id}/>
             </div>
             <div className='center'>
-                <Grid photos={photos} flag={4} albumId= {id}/>
+                {photos.length > 0 ? (
+                  <Grid photos={photos} flag={4} albumId= {id}/>
+                ):(
+                  <h3>No Photos</h3>
+                )}
             </div>
 
             {mapPhotos.length > 0 && (

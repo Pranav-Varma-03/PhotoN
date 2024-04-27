@@ -102,8 +102,10 @@ const Lock = () => {
             <button className="waves-effect waves-light btn"> Submit </button>
         </form>
         </div>
-      ) : (
+      ) : photos.length > 0 ? (
         <Grid photos={photos} flag={2} />
+      ): (
+        <h3>No Photos</h3>
       )}
     </div>
   );
