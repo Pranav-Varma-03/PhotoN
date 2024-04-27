@@ -5,6 +5,7 @@ const router = Router();
 const bodyParser = require('body-parser');
 const app = express();
 const UploadModel = require("../models/UploadModel");
+const SharedAlbumModal = require("../models/SharedAlbumModel.js")
 
 router.get("/api/getAlbums", async (req, res) => {
   const {ownerUserId} = req.query;
@@ -126,6 +127,13 @@ router.delete("/api/album/remove", async (req, res) => {
   try {
     // Remove the album entry from AlbumDetails collection
     await AlbumUploadModel.deleteOne({ _id: albumId });
+    
+  
+    const deletedModel = await SharedAlbumModal.findOneAndDelete({ albumId: albumId });
+
+    if (!deletedModel) {
+      return res.status(404).send('Album not found');
+    }
 
     console.log('Album removed successfully');
     return res.status(200).json({ message: 'Album removed successfully' });

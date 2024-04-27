@@ -238,10 +238,17 @@ router.put("/api/album/:id/remove-shared-album", async (req, res) => {
 // DELETE route to delete a photo permanently
 router.delete("/api/photo/:id/remove", async (req, res) => {
   const { id } = req.params;
+  const photoId = id ;
   console.log(id)
 
   try {
     const deletedPhoto = await UploadModel.findByIdAndDelete(id);
+    const deletedModel = await SharedPhotoModal.findOneAndDelete({ photoId: photoId });
+
+    if (!deletedModel) {
+      return res.status(404).send('Photo not found');
+    }
+
 
     if (!deletedPhoto) {
       return res.status(404).send('Photo not found');
