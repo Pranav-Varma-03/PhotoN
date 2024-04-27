@@ -4,7 +4,9 @@ import axios from "axios";
 import React from 'react';
 import { TagsInput } from "react-tag-input-component";
 import PhotoDetails from './PhotoView.js';
-
+import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
+import 'leaflet/dist/leaflet.css';
+import L from 'leaflet';
 
 const HomePhotoN = () => {
 
@@ -12,28 +14,32 @@ const HomePhotoN = () => {
     const [tagFilter, setTagFilter] = useState('');
     const [filteredPhotos, setFilteredPhotos] = useState([]);
     const [searchText, setSearchText] = useState('');
+    const [mapPhotos, setMapPhotos] = useState([]);
 
     useEffect(() => {
+        axios
+            .get("http://localhost:5001/api/get")
+            .then((res) => {
+                console.log(res.data);
+                // Process the data if necessary, e.g., convert it to URLs or keep as base64
+                const processedPhotos = res.data.map(photo => ({
+                    ...photo,
+                    coordinates: photo.gpsData.split(' ').map(coord => parseFloat(coord)),
 
-        const fetchData = () => {
-            axios
-                .get("http://localhost:5001/api/get")
-                .then((res) => {
-                    console.log(res.data);
-                    // Process the data if necessary, e.g., convert it to URLs or keep as base64
-                    const processedPhotos = res.data.map(photo => ({
-                        ...photo,
-                        // If needed, you can convert the base64 to a URL like this:
-                        // url: `data:image/jpeg;base64,${photo.data}`
-                    }));
-                    setPhotos(processedPhotos);
-                    // setFilteredPhotos(processedPhotos);
-                    console.log(photos[0])
-                })
-                .catch((err) => console.log(err));
-        }
-
-        fetchData();
+                    icon: new L.Icon({
+                        // iconUrl: `data:image/${photo.type};base64,${photo.data}`, // Use photo.type to get the MIME type
+                        iconUrl: photo.data ,
+                        iconSize: [25, 25], // You can adjust the size as needed
+                        iconAnchor: [12, 12], // Adjust based on your icon dimensions
+                        popupAnchor: [1, -25] // Adjust based on your icon dimensions
+                    })
+                }));
+                setPhotos(processedPhotos);
+                setFilteredPhotos(processedPhotos);
+                setMapPhotos(processedPhotos.filter(photo => photo.coordinates.length === 2));
+                console.log(photos[0])
+            })
+            .catch((err) => console.log(err));
     }, [photos]);
 
     const handleFilter = () => {
@@ -95,6 +101,21 @@ const HomePhotoN = () => {
                         <Grid photos={filteredPhotos} flag={5} />
                     )}
                 </div>
+                 {mapPhotos.length > 0 && (
+                <MapContainer center={[mapPhotos[0].coordinates[0], mapPhotos[0].coordinates[1]]} zoom={13} style={{ height: '400px', width: '100%' }}>
+                    <TileLayer
+                        url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+                    />
+                    {mapPhotos.map((photo, idx) => (
+                        <Marker key={idx} position={photo.coordinates} icon={photo.icon}>
+                            <Popup>
+                            <img src= {photo.data} alt={photo._id} style={{ width: '100px', height: 'auto' }}/>
+                                {/* A photo from {photo.name || 'Unknown Location'} */}
+                            </Popup>
+                        </Marker>
+                    ))}
+                </MapContainer>
+            )}
             </div>
 
         </div>

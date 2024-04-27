@@ -3,6 +3,10 @@ import axios from "axios";
 import M from "materialize-css";
 import Cookies from "js-cookie";
 import { useNavigate } from "react-router";
+
+
+
+
 const AlbumManager = () => {
   const [newAlbumName, setNewAlbumName] = useState('');
   const [albums, setAlbums] = useState([]);
