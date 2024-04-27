@@ -9,6 +9,7 @@ import 'leaflet/dist/leaflet.css';
 import L from 'leaflet';
 import './css_to_photoN/homePhotoN.css'
 import Cookies from "js-cookie";
+import { useParams, Link } from 'react-router-dom';
 
 const HomePhotoN = () => {
     const ecookie = Cookies.get('id');
@@ -49,13 +50,6 @@ const HomePhotoN = () => {
             })
             .catch((err) => console.log(err));
     }, [photos, ecookie]); // Include ecookie in dependency array
-
-    const handleFilter = () => {
-        const newFilteredPhotos = photos.filter(photo =>
-            photo.tags.some(tag => tagFilter.includes(tag))
-        );
-        setFilteredPhotos(newFilteredPhotos); // Update filtered photos with the new filter
-    };
 
     const aggregatePhotosByLocation = (photos) => {
         const locations = {};
@@ -129,7 +123,9 @@ const HomePhotoN = () => {
                             <Marker key={idx} position={location.coordinates} icon={location.photos[0].icon}>
                                 <Popup>
                                 {location.photos.map((photo, index) => (
-                                        <img key={index} src={photo.data} alt={photo._id} style={{ width: '100px', height: 'auto' }} />
+                                        <Link to={`/home/photon/photo-details/${photo._id}`}>
+                                        <img src={photo.data} alt={`No photo to display`} style={{ width: '100px', height: 'auto' }} />
+                                    </Link>
                                     ))}
                                 </Popup>
                             </Marker>

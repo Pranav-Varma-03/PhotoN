@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import Grid from '../../../Grid';
 import ShareAlbumButton from '../../../ShareAlbumButton';
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
@@ -12,7 +12,7 @@ const AlbumsView = () => {
     // console.log(id)
     const [photos, setPhotos] = useState([]);
     const [mapPhotos, setMapPhotos] = useState([]);
-
+    
     useEffect(() => {
         axios
             .get("http://localhost:5001/api/get/albumpics",{
@@ -37,11 +37,25 @@ const AlbumsView = () => {
                 }));
                 setPhotos(processedPhotos);
                 console.log(photos[0])
-                setMapPhotos(processedPhotos.filter(photo => photo.coordinates.length === 2));
-                
+                setMapPhotos(aggregatePhotosByLocation(processedPhotos));
             })
             .catch((err) => console.log(err));
     }, [id, photos]);
+
+    const aggregatePhotosByLocation = (photos) => {
+      const locations = {};
+      photos.forEach(photo => {
+          const coordKey = photo.coordinates.join(','); 
+          if (!locations[coordKey]) {
+              locations[coordKey] = {
+                  coordinates: photo.coordinates,
+                  photos: []
+              };
+          }
+          locations[coordKey].photos.push(photo);
+      });
+      return Object.values(locations);
+  };
 
     const handleRemoveAlbum = () => {
         console.log('Removing album');
@@ -95,14 +109,17 @@ const AlbumsView = () => {
                     <TileLayer
                         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
                     />
-                    {mapPhotos.map((photo, idx) => (
-                        <Marker key={idx} position={photo.coordinates} icon={photo.icon}>
-                            <Popup>
-                            <img src= {photo.data} alt={photo._id} style={{ width: '100px', height: 'auto' }}/>
-                                {/* A photo from {photo.name || 'Unknown Location'} */}
-                            </Popup>
-                        </Marker>
-                    ))}
+                    {mapPhotos.map((location, idx) => (
+                            <Marker key={idx} position={location.coordinates} icon={location.photos[0].icon}>
+                                <Popup>
+                                {location.photos.map((photo, index) => (
+                                        <Link to={`/home/photon/album/photo-details/${id}/${photo._id}`}>
+                                        <img src={photo.data} alt={`No photo to display`} style={{ width: '100px', height: 'auto' }} />
+                                    </Link>
+                                    ))}
+                                </Popup>
+                            </Marker>
+                        ))}
                 </MapContainer>
             )}
 
