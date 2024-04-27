@@ -5,6 +5,7 @@ const UserUploadModel = require("../models/UserUploadModel");
 const SharedPhotoModal = require("../models/SharedPhotoModel")
 const router = Router();
 const GlobalPhotoUpload = require("../models/GlobalImageUploadModel");
+const SharedAlbum = require('../models/SharedAlbumModel');
 
 // router.get("/api/get", async (req, res) => {
 //     const allPhotos = await UploadModel.find().sort({ createdAt: "descending" });
@@ -170,6 +171,49 @@ router.put("/api/photo/:id/remove-shared-photo", async (req, res) => {
     if (!user) {
       return res.status(404).send("User not found");
     }
+
+    // Remove user._id from allusers array
+    const indexToRemove = photo.sharedUserId.indexOf(user._id);
+    if (indexToRemove !== -1) {
+      console.log("hello_there");
+      photo.sharedUserId.splice(indexToRemove, 1);
+    }
+
+    // Save the updated photo document
+    await photo.save();
+
+    // // Update the favoritesFlag property
+    // photo. = isBin;
+    // await photo.save();
+
+    res.status(200).send("Bin status updated successfully");
+  } catch (error) {
+    console.error(error);
+    res.status(500).send("An error occurred while updating Bin status");
+  }
+});
+
+router.put("/api/album/:id/remove-shared-album", async (req, res) => {
+  const { id } = req.params;
+  const { isUsername } = req.body;
+
+  console.log(id);
+
+  try {
+    // Find the photo by ID
+    const photo = await SharedAlbum.findOne({ albumId: id });
+    const user = await UserUploadModel.findOne({ username: isUsername });
+
+    // console.log(photo);
+    // console.log(user);
+
+    if (!photo) {
+      return res.status(404).send("Photo not found");
+    }
+
+    if (!user) {
+      return res.status(404).send("User not found");
+    } 
 
     // Remove user._id from allusers array
     const indexToRemove = photo.sharedUserId.indexOf(user._id);

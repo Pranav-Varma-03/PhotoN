@@ -29,13 +29,20 @@ const Share = () => {
           .catch((err) => console.log(err));
       }, []);
 
-    return(
-        <div className="center">
+      const redirectToAlbum = () => {
+        window.location.href = '/home/photon/share/album';
+      };
 
-        <Grid photos={photos} flag={6} />
-            
+      return (
+        <div className="center">
+          <button onClick={redirectToAlbum}>
+            View Shared Albums
+          </button>
+          <Grid photos={photos} flag={6} />
+          {/* Render Grid component based on some state */}
+          {/* {showGrid && <Grid photos={photos} flag={6} />} */}
         </div>
-    )
+      );
 }
 
 export default Share;

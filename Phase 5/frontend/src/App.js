@@ -5,6 +5,7 @@ import ProtectedRoute from './components/ProtectedRoute/ProtectedRoute';
 
 import HomePhotoN from './components/Home/PhotoN/HomePhotoN';
 import Album from './components/Home/PhotoN/Album';
+import ShareAlbum from './components/Home/PhotoN/AlbumShare';
 import Bin from './components/Home/PhotoN/Bin';
 import Fav from './components/Home/PhotoN/Fav';
 import Lock from './components/Home/PhotoN/Lock';
@@ -22,10 +23,10 @@ import PhotoDetailsShare from './components/Home/PhotoN/PhotoViewShare';
 import PhotoDetailsLock from './components/Home/PhotoN/PhotoViewLock';
 import Signup from './components/Signup';
 import AlbumsView from './components/Home/PhotoN/Album/AlbumViews';
+import AlbumsViewShare from './components/Home/PhotoN/Album/AlbumViewShare';
 import PhotoDetailsAlbum from './components/Home/PhotoN/PhotoViewAlbum';
 import GlobalUploadPhotoDetails from './components/Home/MarketPlace/GlobalUploadPhoto';
 class App extends Component {
-
   render() {
     return (
       // <div className="App">
@@ -48,6 +49,8 @@ class App extends Component {
                         <Route path="/" element={<HomePhotoN />} />
                         <Route path="/photo-details/:id" element={<PhotoDetails />} />
                         <Route path="/share" element={<Share />} />
+                        <Route path="/share/album" element={<ShareAlbum />} />
+                        <Route path="/share/album/:id" element={<AlbumsViewShare />} />
                         <Route path="/share/photo-details/:id" element={<PhotoDetailsShare />} />
                         <Route path="/save" element={<Save />} />
                         <Route path="/fav" element={<Fav />} />

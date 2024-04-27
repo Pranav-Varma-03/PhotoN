@@ -81,7 +81,15 @@ const Grid = ({ photos, flag, albumId}) => {
     );
   }
 
-
+  if (flag === 8) {
+    gridContent = (
+      <div className="grid-container">
+        {photos.map(photo => (
+          <img src={`${photo.data}`} alt="Uploaded" key={photo._id} />
+        ))}
+      </div>
+    );
+  }
 
   return gridContent;
 };
