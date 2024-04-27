@@ -2,7 +2,7 @@ const express = require("express");
 const cors = require("cors");
 const mongoose = require('mongoose');
 require("dotenv").config();
-
+const bodyParser = require('body-parser');
 const UploadRoute = require("./routes/UploadRoute");
 const ViewBinRoute = require("./routes/ViewBinRoute");
 const ViewFavRoute = require("./routes/ViewFavRoute");
@@ -16,8 +16,18 @@ const SharedPhoto = require("./routes/SharedPhotoRoute");
 const ViewSharedPhoto = require("./routes/ViewSharedPhoto");
 const app = express();
 app.use(cors());
-app.use(express.json());
+
 app.use(express.static("public"));
+
+app.use(bodyParser.urlencoded({ limit: "50mb",extended: true })); 
+app.use(express.json({
+  verify: (req, res, buf) => {
+  req.rawBody = buf.toString()
+  },
+  limit: "50mb"
+  }));
+  
+  // app.use(bodyParser.json({ limit: '1kb' }))
 
 const PORT = process.env.PORT || 5001;
 

@@ -6,10 +6,9 @@ const bodyParser = require('body-parser');
 const app = express();
 const { GoogleGenerativeAI } = require("@google/generative-ai");
 const fs = require("fs");
-app.use(bodyParser.json())
-app.use(bodyParser.json({ limit: '50mb' }));
-app.use(bodyParser.urlencoded({ limit: '50mb', extended: true }));
-
+// app.use(bodyParser.urlencoded({ limit: "500mb",para:100000,extended: true })); 
+app.use(bodyParser.json({ limit: '1kb' }))
+app.use(router)
 
 const genAI = new GoogleGenerativeAI("AIzaSyBg2hgX3mnoh4vd0JqCTDnIqkFndNHc2hU");
 
@@ -18,9 +17,9 @@ async function run_text_tags(description) {
   const model = genAI.getGenerativeModel({ model: "gemini-pro"});
 
   const str2 = "' .......... Now for the text Given as input, generate the top 5 most significant keywords separated by spaces if the input sentence length is less than 5 then return the words from the input sentence only. Suppose if the tags of a text are 'girl', 'boy', 'teacher', 'class', 'bench' then the output must and should be only 'girl boy teacher class bench', the output shouldn't be like 'The best description of the text is: girl boy teacher class bench' and the output should not even be of the type 'The top 5 most significant keywords for this text are: girl boy teacher class bench', I only need the response to just contains 5 words thats it. Guranteely ensure that the response message has only 5 words in it noting more nothing less I don't want any useless information I just want the 5 keywords separated with spaces that's it."
-  const str1 = "Text for which Tags are to be generated: '" ;
-  const prompt = str1 + description + str2 ;
-  const result = await model.generateContent(prompt);
+  const str1 = "Text for which Tags are to be generated: '" ; 
+  const prompt = str1 + description + str2 ; 
+  const result = await model.generateContent(prompt); 
   const response = await result.response;
   const text = response.text();
   // console.log(text);
@@ -112,7 +111,6 @@ function removeSubstringUntilFirstComma(inputString) {
 router.post("/api/save", async(req,res)=>{
   const {photo, ownerUserId,resolution,size,type, gpsData} = req.body
   const gptstr = await removeSubstringUntilFirstComma(photo)
-  // console.log(gpsData,"Helooooooooooooooooooo")
   const a = await run_image_tags(gptstr, type)
   const tag_array = extractFirstFiveWords(a)
   const tags = tag_array[0].split(' ');
