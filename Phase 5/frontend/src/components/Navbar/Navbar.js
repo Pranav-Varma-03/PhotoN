@@ -58,8 +58,8 @@ const Navbar = () =>{
         <nav className="nav-wrapper red darken-3">
             <div className="container">
                 <ul id="nav-mobile" className="left hide-on-med-and-down">
-                    <li><a href={hrefHomePhoton} >PHOTO N</a></li>
-                    <li><a href={hrefHomeMarketplace} >Market Place</a></li>
+                    <li><a href={hrefHomePhoton} >PhotoN</a></li>
+                    <li><a href={hrefHomeMarketplace} >MarketPlace</a></li>
                 </ul>
                 <ul id="nav-mobile" className="right hide-on-med-and-down">
                 <UploadButton />

@@ -47,6 +47,7 @@ const HomePhotoN = () => {
                 }));
                 setPhotos(processedPhotos);
                 // setFilteredPhotos(processedPhotos);
+                setFilteredPhotos(processedPhotos);
                 setMapPhotos(aggregatePhotosByLocation(processedPhotos));
                 console.log(photos[0])
                 setLoading(false);
@@ -56,24 +57,27 @@ const HomePhotoN = () => {
 
         fetchData();
         
-    }, [photos]); // Include ecookie in dependency array
+    }, []); // Include ecookie in dependency array
 
     const aggregatePhotosByLocation = (photos) => {
         const locations = {};
         photos.forEach(photo => {
-            const coordKey = photo.coordinates.join(',');
-            if (!locations[coordKey]) {
-                locations[coordKey] = {
-                    coordinates: photo.coordinates,
-                    photos: []
-                };
+            if (photo.coordinates.length === 2 && !isNaN(photo.coordinates[0]) && !isNaN(photo.coordinates[1])) {
+                const coordKey = photo.coordinates.join(',');
+                if (!locations[coordKey]) {
+                    locations[coordKey] = {
+                        coordinates: photo.coordinates,
+                        photos: []
+                    };
+                }
+                locations[coordKey].photos.push(photo);
             }
-            locations[coordKey].photos.push(photo);
         });
         return Object.values(locations);
     };
 
-    const handleSearch = () => {
+    const handleSearch = async() => {
+        setLoading(true)
         axios.get("http://localhost:5001/api/getTagsPhotoSearch", {
             params: { search: searchText }
         })
@@ -87,9 +91,10 @@ const HomePhotoN = () => {
                 const newFilteredPhotos = photos.filter(photo =>
                     photo.tags.some(tag => res.data.includes(tag))
                 );
-
+                setFilteredPhotos(newFilteredPhotos);
+                setLoading(false)
                 console.log(newFilteredPhotos);
-                setFilteredPhotos(newFilteredPhotos); // Update filtered photos with the new filter
+                 // Update filtered photos with the new filter
                 // Here you need to set the filteredPhotos variable with the response from http://localhost:5001/api/get
                 // Do modfications in the UploadRoute.js 
             })
@@ -108,29 +113,28 @@ const HomePhotoN = () => {
             />
             <button onClick={handleSearch}>Search</button>
             {loading ? (
-                <div>
-                    <h3>Loading...</h3>
-                </div>
-            ) : (
-                <div>
-                    {searchText === '' ? (
-                        photos.length > 0 ? (
-                            <Grid photos={photos} flag={0} />
-                        ) : (
-                            <h3>No Photos</h3>
+                    <div>
+                        <h3>
+                        Loading...
+                        </h3>
+                    </div>
+                ) : (
+                    searchText === '' ? (
+                        <Grid photos={photos} flag={7} />
+                    ) : (
+                        filteredPhotos.length !== photos.length ? (
+                            filteredPhotos.length > 0 ? (
+                                <Grid photos={filteredPhotos} flag={7} />
+                            ) : (
+                                <div><h3>No Photos for the search</h3></div>
+                            )
                         )
-                    ) : searchClick ? (
-                        filteredPhotos.length > 0 ? (
-                            <Grid photos={filteredPhotos} flag={7} />
-                        ) : (
-                            <h3>No Photos</h3>
-                        )
-                    ): (
-                        <h3>Searching..</h3>
-                    )}
-                </div>
-            )}
-            {mapPhotos.length > 0  && (
+                        : (
+                            <div><h3>Searching</h3></div>
+                          )
+                    )
+                )}
+            {mapPhotos.length > 0 && (
                 <MapContainer center={[mapPhotos[0].coordinates[0], mapPhotos[0].coordinates[1]]} zoom={5} style={{ height: '400px', width: '100%' }}>
                     <TileLayer
                         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
