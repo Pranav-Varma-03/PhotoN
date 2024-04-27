@@ -1,13 +1,12 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import Grid from "../../Grid.js";
 import axios from "axios";
-import React from 'react';
 import Cookies from "js-cookie";
 import './css_to_photoN/fav.css'
 
-const Fav= () => {
-
-    const [photos,setPhotos] = useState([])
+const Fav = () => {
+    const [loading, setLoading] = useState(true); // Loading state
+    const [photos, setPhotos] = useState([]);
     const ecookie = Cookies.get('id');
 
     useEffect(() => {
@@ -25,18 +24,24 @@ const Fav= () => {
             }));
 
             setPhotos(processedPhotos);
-            console.log(photos[0])
+            setLoading(false); // Set loading state to false after data is fetched
+            console.log(photos[0]);
           })
-          .catch((err) => console.log(err));
-      }, []);
+          .catch((err) => {
+            console.log(err);
+            setLoading(false); // Set loading state to false if there's an error
+          });
+      }, [ecookie]);
 
-    return(
+    return (
         <div className="main-content center">
-
-        <Grid photos={photos} flag={0} />
-            
+            {loading ? (
+                <h3>Loading...</h3> // Display loading message
+            ) : (
+                <Grid photos={photos} flag={0} /> // Render Grid component when data is ready
+            )}
         </div>
-    )
+    );
 }
 
 export default Fav;

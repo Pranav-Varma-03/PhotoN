@@ -42,7 +42,7 @@ const Share = () => {
         View Shared Albums
       </button>
       {loading ? (
-        <div>Loading...</div> // Display loading indicator
+        <div><h3>Loading...</h3></div> // Display loading indicator
       ) : (
         <Grid photos={photos} flag={6} /> // Render Grid component when data is ready
       )}

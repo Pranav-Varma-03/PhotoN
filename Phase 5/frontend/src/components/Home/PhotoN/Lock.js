@@ -83,7 +83,7 @@ const Lock = () => {
   return (
     <div className="main-content center">
       {loading ? (
-              <p>Loading...</p>
+              <h3>Loading...</h3>
             ):!authenticated ? (
         <div className="container">
         <form className="col s12" onSubmit={handleFormSubmit}>
