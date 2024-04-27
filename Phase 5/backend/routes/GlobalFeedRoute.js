@@ -71,6 +71,7 @@ router.delete("/api/removeFromGlobal/:id", async (req, res) => {
 router.get("/api/getGlobalUploads/:id", async (req, res) =>{
   try{
     const {id} = req.params;
+    console.log(id)
     const photos = await UploadModel.find({ ownerUserId: id });
 
     const photosData = photos.map(photo => ({

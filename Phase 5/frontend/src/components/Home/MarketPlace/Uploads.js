@@ -36,8 +36,15 @@ const Uploads = () => {
 
     return (
         <div className="center">
-
-            <div className="main-content">
+            <div className="sidebar">
+            <ul>
+                <li><a href="/home/marketplace">Global Fav</a></li>
+                <li><a href="/home/marketplace/publicfeed">Public Feed</a></li>
+                <li><a href="/home/marketplace/uploads">My Uploads</a></li>
+            </ul>
+            </div>
+            
+            <div>
                 <Grid photos={photos} flag={5} />
             </div>
 

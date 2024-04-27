@@ -31,6 +31,17 @@ const Grid = ({ photos, flag, albumId}) => {
     );
   }
   
+  if (flag === 5) {
+    gridContent = (
+      <div className="grid-container">
+        {photos.map(photo => (
+          <Link to={`/home/marketplace/uploads/${photo._id}`} key={photo._id}>
+            <img src={`${photo.photo}`} alt="Uploaded" />
+          </Link>
+        ))}
+      </div>
+    );
+  }
 
   if (flag === 1) {
     gridContent = (
