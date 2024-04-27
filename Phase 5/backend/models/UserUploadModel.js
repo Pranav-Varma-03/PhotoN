@@ -8,24 +8,16 @@ const userUploadSchema = new mongoose.Schema(
       unique: true,
     },
     password: {
-      type: String,
+      type: String, 
       required: true,
     },  
-    followersCount: {
-      type: Number,
-      default: 0,
-    },
-    following: {
-      type: [mongoose.Schema.Types.ObjectId],
-      default: [],
-    },
     interestTags: {
       type: [String],
       default: [],
     },
     lockedFolderPassword: {
       type: String,
-      default: "LOCK",
+      default: "$2b$10$uhNbJORyQUEA4ojyOxoec.J4zUN96EtYY729Fe88GBvtPs4Fo/9BO",
     },
   },
   { collection: "UserUploads" }

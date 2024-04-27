@@ -40,6 +40,11 @@ const Navbar = () =>{
         navigate('/login');
     }
 
+    const handleProfile = (e) =>{
+        e.preventDefault();
+        navigate('/profile')
+    }
+
 
     return(
         <nav className="nav-wrapper red darken-3">
@@ -52,6 +57,7 @@ const Navbar = () =>{
                 <UploadButton />
                 </ul>
                 <ul className="right">
+                    <button onClick={handleProfile}>Profile</button>
                     <button onClick={handleclick} >Logout</button>
                 </ul>
             </div>
