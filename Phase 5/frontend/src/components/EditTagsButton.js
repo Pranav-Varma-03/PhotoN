@@ -37,7 +37,7 @@ const EditTags = ({tags,photoid}) => {
  
     return (
         <div>
-            <button className="btn modal-trigger" data-target="editTagsModal">Edit Tags</button>
+            <button className="btn modal-trigger" data-target="editTagsModal"><i className="fas fa-edit"></i></button>
             <div id="editTagsModal" className="modal">
                 <div className="modal-content">
                     <h4>Edit Tags</h4>

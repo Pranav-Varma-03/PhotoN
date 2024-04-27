@@ -4,6 +4,7 @@ import { useNavigate } from "react-router";
 import EditTags from './EditTagsButton';
 import SharePhotoButton from './SharePhotoButton';
 import AddtoAlbumButton from './Home/PhotoN/Album/AddtoAlbumButton';
+import './photoActions.css'
 
 
 const PhotoActionsContainer = ({photo}) => {
@@ -128,30 +129,38 @@ const PhotoActionsContainer = ({photo}) => {
   };
 
   return (
+    
     <div className="photo-actions-container">
-
-    <div>
-        <img src={photo[0].data} alt="Uploaded" />
-        <p>Resolution: {photo[0].resolution}</p>
-        <p>Size: {photo[0].size}</p>
-        <p>Type: {photo[0].type}</p>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></link>
+  <div class="photo-view-card">
+    <div class="photo-content">
+      <img src={photo[0].data} alt="Uploaded" />
     </div>
-
+    <div class="photo-details">
       <div className="photo-actions">
-        <button onClick={handleChangeFavorite} style={{ backgroundColor: photo[0].favoritesFlag ? 'red' : 'transparent' }}>
-          {photo[0].favoritesFlag ? 'Unfavorite' : 'Favorite'}
+        {/* All your buttons here */}
+        <button onClick={handleChangeFavorite} className={`favorite-button ${photo[0].favoritesFlag ? 'active' : ''}`}>
+          {photo[0].favoritesFlag ? <i className="fas fa-heart"></i> : <i className="far fa-heart"></i>}
         </button>
-        <button onClick={handleMakeHidden}>Make Hidden</button>
-        <button onClick={handleMakeGlobal}>Make Global</button>
-        <button onClick={handleDelete}>Delete</button>
-        <EditTags tags = {photo[0].tags} photoid={photo[0]._id}/>
-        {/* <button onClick={handleEditTags}>Edit Tags</button> */}
-        <button onClick={handleDownload}>Download</button>
-        <AddtoAlbumButton photoid={photo[0]._id}/>
-        <SharePhotoButton photoid={photo[0]._id}/>
-        {/* missing adding to a album , move albumn , and info of a image , sharing a image */}
+        <button onClick={handleMakeHidden}><i className="fas fa-eye-slash"></i></button>
+        <button onClick={handleMakeGlobal}><i className="fas fa-globe"></i></button>
+        <button onClick={handleDelete}><i className="fas fa-trash-alt"></i> </button>
+        <button onClick={handleDownload}><i className="fas fa-download"></i></button>
+        <EditTags tags={photo[0].tags} photoid={photo[0]._id} />
+        <AddtoAlbumButton photoid={photo[0]._id} />
+        <SharePhotoButton photoid={photo[0]._id} />
+        {/* Additional buttons as required */}
+      </div>
+      <div className="photo-info-container">
+        {/* All your photo information here */}
+        <p class="photo-info">Resolution: {photo[0].resolution}</p>
+        <p class="photo-info">Size: {photo[0].size}</p>
+        <p class="photo-info">Type: {photo[0].type}</p>
+        {/* Additional info as required */}
       </div>
     </div>
+  </div>
+</div>
   );
 };
 

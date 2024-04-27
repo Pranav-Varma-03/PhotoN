@@ -64,7 +64,7 @@ const AddtoAlbumButton = (photoId)=> {
   return (
 
   <div>
-   <button className="btn modal-trigger" data-target="modal2">Copy to Album</button>
+   <button className="btn modal-trigger" data-target="modal2"><i className="fas fa-plus-square"></i></button>
 
     <div id="modal2" className="modal">
       <div className="modal-content">

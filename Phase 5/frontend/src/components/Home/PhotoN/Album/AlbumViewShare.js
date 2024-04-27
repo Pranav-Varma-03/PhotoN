@@ -52,7 +52,7 @@ const AlbumsViewShare = () => {
     
 
     return(
-        <div className='container'>
+        <div className='container1'>
          <div className='container'>
                 <button onClick={handleRemoveAlbum}>Remove Album</button>
             </div>

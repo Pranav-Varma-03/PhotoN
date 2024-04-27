@@ -1,8 +1,10 @@
-.main-content{
+.container1{
     margin-left: 15%;
     width: 85%;
-    padding-top: 60px;
-}
+    padding-top: 100px; /* Assuming navbar height */
+    height: 90%;
+    position: relative;
+  }
 .input-field{
     padding-top: 50px;
     padding-left: 25px;

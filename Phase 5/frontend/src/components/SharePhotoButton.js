@@ -96,7 +96,7 @@ const SharePhotoButton = ({ photoid }) => {
 
     return (
         <div>
-            <button className="btn modal-trigger" data-target="SharePhotoModel">Share Photo</button>
+            <button className="btn modal-trigger" data-target="SharePhotoModel"><i className="fas fa-share-alt"></i></button>
             <div id="SharePhotoModel" className="modal">
                 <div className="modal-content">
                     <h4>Share Photo</h4>

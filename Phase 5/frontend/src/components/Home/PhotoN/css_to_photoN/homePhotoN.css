@@ -1,5 +1,8 @@
 .main-content{
     margin-left: 15%;
     width: 85%;
-    padding-top: 60px;
+    padding-top: 70px; /* Assuming navbar height */
+    height: 90%; /* Adjusted based on navbar height */
+    overflow: auto;
+    bottom: 0;
 }

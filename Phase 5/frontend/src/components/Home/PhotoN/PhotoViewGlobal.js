@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
 import GlobalPhotoActionsContainer from '../../PhotoActionsGlobal';
+import './css_to_photoN/photoView.css'
 
 const GlobalPhotoDetails = () => {
     const { id } = useParams();
@@ -30,7 +31,7 @@ const GlobalPhotoDetails = () => {
         return <div>Photo not found</div>;
     } else {
         return (
-            <div>
+            <div className='container3'>
                 <GlobalPhotoActionsContainer photo={photo}  />
             </div>
         );

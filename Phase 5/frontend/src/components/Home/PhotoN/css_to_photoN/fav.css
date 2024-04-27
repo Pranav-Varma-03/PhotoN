@@ -1,5 +1,7 @@
 .main-content{
     margin-left: 15%;
     width: 85%;
-    padding-top: 60px;
+    padding-top: 100px; /* Adjust this value to clear your navbar's height */
+    height: 90%; /* Update this as well to maintain the intended layout */
+    overflow: auto;
 }

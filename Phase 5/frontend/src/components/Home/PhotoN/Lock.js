@@ -85,7 +85,7 @@ const Lock = () => {
       {loading ? (
               <h3>Loading...</h3>
             ):!authenticated ? (
-        <div className="container">
+        <div className="container2">
         <form className="col s12" onSubmit={handleFormSubmit}>
             <div className="row">
                 <div className="input-field col s12">

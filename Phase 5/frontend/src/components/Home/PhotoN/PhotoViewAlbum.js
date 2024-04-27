@@ -4,6 +4,7 @@ import { useParams } from 'react-router-dom';
 import PhotoActionsAlbumContainer from '../../PhotoActionsAlbum';
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
+import './css_to_photoN/photoView.css'
 
 
 const PhotoDetailsAlbum = () => {
@@ -32,7 +33,7 @@ const PhotoDetailsAlbum = () => {
         
         return (
 
-            <div>
+            <div className='container3'>
                 <PhotoActionsAlbumContainer albumId={albumId} photo={photo} />
             </div>
         );

@@ -39,7 +39,7 @@ const ShareAlbum = () => {
     };
 
     return (
-        <div className="container">
+        <div className="container1">
             <div className="center">ALBUMS PAGE</div>
             <div>
                 <h5>Existing Albums:</h5>

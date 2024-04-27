@@ -62,9 +62,36 @@
     left: 0;           /* Align to the left */
     width: 100%;       /* Take full width */
     z-index: 1000;     /* Ensure it's above other items */
-    margin-bottom: 100px;
+    height: 10%;
+    
 }
 .body{
     padding-top: 60px;
 }
+
+  
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 64px; /* Define a fixed height for your nav, adjust as needed */
+  }
+  
+  /* Right-aligned container flex styling */
+.right-aligned-elements {
+    display: flex;
+  }
+  
+  /* Individual containers within the right-aligned container */
+.upload-button-container,
+.button-container {
+    display: flex;
+    align-items: center;
+    margin-left: 10px; /* Adds space between the different right-aligned elements */
+  }
+  
+  /* Adjust button style to match your design needs */
+.button-container button {
+    margin-left: 5px; /* Adds space between buttons */
+  }
 

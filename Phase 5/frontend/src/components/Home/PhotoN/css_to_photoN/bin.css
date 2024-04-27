@@ -1,5 +1,8 @@
 .main-content{
     margin-left: 15%;
-    width: 85%;
-    padding-top: 60px;
+    /*padding-top: 100px; /* Adjust this value to clear your navbar's height */
+    width: 85%; /* Adjusted width to fit the rest of the space, considering starting point */
+    height: 90%; /* Adjusted height to fit from the starting point to the end of the viewport */
+    padding-top: 70px; /* Keeping your navbar height adjustment */
+    overflow: auto; 
 }

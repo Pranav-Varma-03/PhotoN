@@ -110,7 +110,7 @@ const UserProfile = () => {
     };
 
     return (
-        <div className="center">
+        <div className="container1 center">
             {loading ? (
                 <p>Loading...</p>
             ) : !authenticated ? (

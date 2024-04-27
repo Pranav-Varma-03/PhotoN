@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
 import PhotoActionsShareContainer from '../../PhotoActionsShare';
-
+import './css_to_photoN/photoView.css'
 const PhotoDetailsShare = () => {
 
     const { id } = useParams();
@@ -34,7 +34,7 @@ const PhotoDetailsShare = () => {
         return <div>Photo not found</div>;
     } else {
         return (
-            <div>
+            <div className='container3'>
                 {/* <img src={photo[0].data} alt="Uploaded" />
                 <p>Resolution: {photo[0].resolution}</p>
                 <p>Size: {photo[0].size}</p>
