@@ -98,7 +98,6 @@ const HomePhotoN = () => {
     return (
         <div className="center">
             <div className="main-content">
-                {/* <TextInputComponent/> */}
                 <input
                     type="text"
                     placeholder="Description of Photo for search"
