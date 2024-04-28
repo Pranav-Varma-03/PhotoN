@@ -22,7 +22,7 @@ const GlobalUploadPhotoDetails = () => {
         return <div>Photo not found</div>;
     } else {
         return (
-            <div>
+            <div className="main-content center">
                 <GlobalUploadPhotoActionsContainer photo={photo}  />
             </div>
         );

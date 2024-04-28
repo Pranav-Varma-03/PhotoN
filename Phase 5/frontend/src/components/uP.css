@@ -1,0 +1,132 @@
+/* Utilize the provided styles */
+.container5{
+    margin-left: 15%;
+    width: 85%; /* Adjusted width to fit the rest of the space, considering starting point */
+    height: 90%; /* Adjusted height to fit from the starting point to the end of the viewport */
+    padding-top: 70px; /* Keeping your navbar height adjustment */
+    overflow: auto; 
+    position: fixed;
+    bottom: 0;
+}
+.search-container2 {
+    text-align: left;
+}
+
+.search-container2 input[type="text"],
+.search-container2 input[type="password"] { /* Applied to both text and password inputs */
+    padding: 1em !important;
+    border: 1px solid #7f7d7d !important;
+    background-color: #fff !important;
+    border-radius: 50px !important;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05) !important;
+    width: 80% !important;
+    max-width: 500px !important;
+    font-size: 1rem !important;
+    margin: 0.5em auto auto 10px !important;
+    box-sizing: border-box !important;
+    text-align: left !important;
+    margin-left: 10px;
+}
+
+.button-container3 {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    position: relative; /* Changed from fixed to relative */
+    right: 0;
+    margin-right: 10px;
+}
+
+.button-container3 button,
+.search-container2 button { /* Added styles to both button-container and search-container buttons */
+    padding: 0.8em 1.5em !important;
+    border-radius: 30px !important;
+    background-color: black !important;
+    color: white !important;
+    cursor: pointer !important;
+    transition: background-color 0.3s ease !important;
+    font-weight: bold;
+    margin: 0.5em;
+}
+
+.button-container3 button:hover,
+.search-container2 button:hover { /* Added hover effect to both button-container and search-container buttons */
+    background-color: #333 !important;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2) !important;
+}
+.container6 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 64px;
+    gap: 10px;
+}
+/* Main container styles */
+.container7, .container6 {
+    margin-bottom: 20px; /* Adjust the distance between the elements */
+  }
+  
+  /* Center align h3 heading and add spacing below */
+  .container7 h3 {
+    text-align: center;
+    margin-bottom: 40px; /* Spacing below the heading */
+  }
+  
+  /* Style your input fields and labels */
+  .input-field {
+    position: relative; /* Establish a positioning context */
+    margin-bottom: 10px; /* Reduced space between the input field and button */
+  }
+  
+  /* Ensure labels are styled consistently */
+  .input-field label {
+    display: block; /* Change display type to block for proper alignment */
+    margin-bottom: 5px; /* Spacing between label and input */
+  }
+  
+  /* Style your password inputs */
+  .input-field input[type="password"] {
+    width: 100%; /* Full width of the container */
+    padding: 10px; /* Padding inside the input for better text visibility */
+    border: 1px solid #ccc; /* Border around the input */
+    border-radius: 5px; /* Rounded corners for the input */
+  }
+  
+  /* Style the buttons with minimal gap between them and input fields */
+  .waves-effect.waves-light.btn {
+    display: block; /* Block display to fill the width and center align */
+    width: 100%; /* Full width to match the input fields */
+    margin-top: 10px; /* Small gap between the input field and button */
+  }
+  
+  /* Additional styles to handle the distance between components */
+  .updateUserTags {
+    margin-bottom: 40px; /* Same distance below the tags as the heading */
+  }
+
+  .container6 {
+    margin-bottom: 40px;
+  }
+  
+  .input-field-container {
+    text-align: center; /* Center the contents */
+  }
+  
+  .password-label {
+    display: block; /* Ensure label appears on its own line */
+    margin-bottom: 5px; /* Smaller gap between label and input field */
+  }
+  
+  .password-input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px; /* Larger gap between input and button */
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    display: block; /* Ensures full width usage */
+  }
+  
+  .update-button {
+    display: block; /* Ensures full width usage */
+    width: 100%;
+  }

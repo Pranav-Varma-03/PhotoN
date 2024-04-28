@@ -1,7 +1,41 @@
-.main-content {
+.main-content{
     margin-left: 15%;
     width: 85%;
     padding-top: 100px; /* Adjust this value to clear your navbar's height */
     height: 90%;/* Update this as well to maintain the intended layout */
     overflow: auto;
+    display: grid; /* Use CSS grid layout */
   }
+
+  .grid-item1 {
+    display: flex;
+    flex-direction: column; /* Stack icon and text vertically */
+    align-items: center; /* Center items horizontally */
+    justify-content: center; /* Center items vertically */
+    background: #ccc;
+    border-radius: 10px;
+    width: 100%; /* Take full width of the grid cell */
+    height: 100%; /* Adjust based on your grid layout */
+    box-sizing: border-box;
+    padding: 10px;
+    text-align: center; /* Ensure text is centered */
+  }
+  .button-container {
+    text-align: center;
+    justify-content: center; /* Centers inline and inline-block elements horizontally */
+  }
+  .smallBs{
+        padding: 0.8em 1.5em !important; /* Padding */
+        border-radius: 30px !important; /* Button shape */
+        background-color: black !important; /* Button color */
+        color: white !important;
+        cursor: pointer !important;
+        transition: background-color 0.3s ease !important;
+        font-weight: bold;
+        margin: 0.5em;
+        width:  15%;
+      }
+
+    /* <button onClick={redirectToAlbum} className="smallBs">
+        View Shared Albums
+      </button> */

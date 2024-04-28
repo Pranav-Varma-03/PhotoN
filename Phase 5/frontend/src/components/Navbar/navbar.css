@@ -2,7 +2,7 @@
     color: blue;
     font-size: 100;
     /* Set the height to 100% of the viewport */
-    height: 90%; 
+    height: 91%; 
     /* Set the width to occupy 10 to 15 percent of the viewport */
     width: 15%; /* Adjust this value as needed */
     /* Set the position to fixed to keep it fixed relative to the viewport */
@@ -24,7 +24,9 @@
     color:  #070707; 
     border-radius: 25px;
 }
-
+.sidebar ul{
+    padding-bottom: 20%;
+}
 .sidebar ul li a.current:hover{
     text-decoration: underline;
     background-color:rgba(93, 231, 244, 0.868);
@@ -47,6 +49,61 @@
     /* border-bottom-right-radius: 25px; */
     text-decoration: underline;
 }
+.upload-btn-container {
+    position: absolute;
+    left: 50%; /* Horizontally center the button */
+    bottom: 15%; /* Position 15% from the bottom of the sidebar */
+    transform: translateX(-50%); /* Shift the button to the left half its width for true centering */
+  }
+.sidebar2{
+    color: blue;
+    font-size: 100;
+    /* Set the height to 100% of the viewport */
+    height: 91%; 
+    /* Set the width to occupy 10 to 15 percent of the viewport */
+    width: 15%; /* Adjust this value as needed */
+    /* Set the position to fixed to keep it fixed relative to the viewport */
+    position: fixed; 
+    /* Set the sidebar to the left edge of the viewport */
+    left: 0; 
+    /* Set the top position to 0 */
+    bottom: 0; 
+    /* Customize the background color of the sidebar */
+    background-color: #f0f0f0; 
+    /* Ensure content overflows horizontally are hidden */
+    overflow-x: hidden; 
+    /* Add padding to the top */
+    padding-top: 20px; 
+}
+.sidebar2 ul li a.current{
+    display: block;
+    background-color: rgba(93, 231, 244, 0.868);
+    color:  #070707; 
+    border-radius: 25px;
+}
+
+.sidebar2 ul li a.current:hover{
+    text-decoration: underline;
+    background-color:rgba(93, 231, 244, 0.868);
+}
+
+.sidebar2 ul li a {
+    display: block; 
+    color: #070707; 
+    font-weight:normal;
+    font-size: 16px; 
+    /* Add box styling */
+    padding: 10px; /*Adjust padding as needed*/
+    /* border: 1px solid #ccc; /* Add border */
+    /*border-radius: 5px; Add border radius for rounded corners */
+    margin-bottom: 5px; /* Add margin bottom for spacing between links */
+}
+.sidebar2 ul li a:hover{
+    background-color: rgb(212, 212, 212);
+    border-radius: 25px;
+    /* border-bottom-right-radius: 25px; */
+    text-decoration: underline;
+}
 .active-link {
     background-color: rgb(64, 210, 233);
     border-radius: 25px; /* Text color of the active link */
@@ -62,7 +119,8 @@
     left: 0;           /* Align to the left */
     width: 100%;       /* Take full width */
     z-index: 1000;     /* Ensure it's above other items */
-    height: 10%;
+    height: 9%;
+    background-color: rgba(213, 213, 213, 0.484);
     
 }
 .body{
@@ -93,5 +151,161 @@
   /* Adjust button style to match your design needs */
 .button-container button {
     margin-left: 5px; /* Adds space between buttons */
+  }
+  .search-container {
+    text-align: left; /* Align contents to the left */
+}
+
+.search-container input[type="text"] {
+    padding: 1em !important; /* Override padding */
+    border: 1px solid #7f7d7d !important; /* Override border */
+    background-color: #fff !important; /* Ensure background is white or as desired */
+    border-radius: 50px !important; /* Fully oval shape */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05) !important; /* Soft shadow */
+    width: 80% !important; /* Relative to its container, override width */
+    max-width: 500px !important; /* Maximum width */
+    font-size: 1rem !important; /* Font size */
+    margin: 0.5em auto auto 10px !important; /* Horizontal center and margin below */
+    box-sizing: border-box !important; /* Include padding and border in set width and height */
+    text-align: left !important; /* Left-align text */
+    margin-left: 10px;
+}
+
+
+  
+  /* If input text alignment is desired, add this:
+     Avoid using !important with text-align if it does not conflict with Materialize styles */
+  /* .search-container input[type="text"]:not(.browser-default) {
+    text-align: center !important;
+  } */
+  .search-container button::before {
+    content: "\f002"; /* Unicode for the search icon */
+    font-family: "Font Awesome 5 Free"; /* Font family for Font Awesome */
+    margin-right: 0.5em; /* Adjust spacing between icon and button text */
+}
+  /* Override Materialize button styles only if necessary */
+  .search-container button {
+    padding: 0.8em 1.5em !important; /* Padding */
+    border-radius: 30px !important; /* Button shape */
+    background-color: black !important; /* Button color */
+    color: white !important;
+    cursor: pointer !important;
+    transition: background-color 0.3s ease !important;
+    font-weight: bold;
+    margin: 0.5em;
+  }
+  
+  .search-container button:hover {
+    background-color: #333434 !important; /* Darker color on hover */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2) !important; /* Shadow on hover */
+}
+
+
+.button-container2 {
+    display: flex; /* Aligns the buttons in a row. */
+    justify-content: center; /* Centers buttons horizontally. */
+    gap: 10px; /* Space between buttons. */
+    position: fixed;
+    right: 0;
+    margin-right: 10px;
+}
+
+.button-container2 button {
+    display: flex; /* Activates flexbox for inline elements, properly centering the icon with the text. */
+    align-items: center; /* Vertically centers content inside the button. */
+    justify-content: center; /* Horizontally centers content inside the button. */
+    padding: 10px 20px; /* Adjust padding as necessary */
+    font-size: 16px; /* Set the font-size as you prefer. */
+    border: 1px solid transparent; /* Optional border, can be removed or styled. */
+    border-radius: 5px; /* Soften the corners of the button. */
+    background-color: black; /* Set your desired background color. */
+    color: white; /* Change the text/icon color as needed. */
+    cursor: pointer; /* Change cursor to pointer on hover. */
+    text-decoration: none; /* Remove any underlines from the text. */
+    margin: 0; /* Override any default margins set by browsers. */
+    transition: all 0.3s ease; /* Smooth transition for any changes. */
+}
+
+/* Icons inside buttons */
+.button-container2 button i {
+    margin-right: 10px; 
+    height: 100% !important; /* Space between the icon and the text. Adjust as needed. */
+}
+
+/* Hover effects for buttons */
+.button-container2 button:hover {
+    background-color: darken(black, 10%); /* Darker blue on hover, adjust the color as necessary. */
+}
+
+.cont{
+    position:fixed;
+    left: 0;
+    margin-left: 100px;
+    gap: 10px;
+}
+.cont ul li a{
+    margin: 10px !important;
+    background-color: black;
+}
+.up_button{
+    flex: 1;
+    display: flex;
+    justify-content: center; /* Horizontally center the content */
+    align-content: center; /* Vertically center the content */
+    margin-left: 10px;
+
+}
+
+.search-container2 {
+    text-align: left; /* Align contents to the left */
+}
+
+.search-container2 input[type="text"] {
+    padding: 1em !important; /* Override padding */
+    border: 1px solid #7f7d7d !important; /* Override border */
+    background-color: #fff !important; /* Ensure background is white or as desired */
+    border-radius: 50px !important; /* Fully oval shape */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05) !important; /* Soft shadow */
+    width: 80% !important; /* Relative to its container, override width */
+    max-width: 500px !important; /* Maximum width */
+    font-size: 1rem !important; /* Font size */
+    margin: 0.5em auto auto 10px !important; /* Horizontal center and margin below */
+    box-sizing: border-box !important; /* Include padding and border in set width and height */
+    text-align: left !important; /* Left-align text */
+    margin-left: 10px;
+}
+
+
+  
+  /* If input text alignment is desired, add this:
+     Avoid using !important with text-align if it does not conflict with Materialize styles */
+  /* .search-container2 input[type="text"]:not(.browser-default) {
+    text-align: center !important;
+  } */
+  .search-container2 button::before {
+    /* content: "\f002"; Unicode for the search icon */
+    font-family: "Font Awesome 5 Free"; /* Font family for Font Awesome */
+    margin-right: 0.5em; /* Adjust spacing between icon and button text */
+}
+  /* Override Materialize button styles only if necessary */
+  .search-container2 button {
+    padding: 0.8em 1.5em !important; /* Padding */
+    border-radius: 30px !important; /* Button shape */
+    background-color: black !important; /* Button color */
+    color: white !important;
+    cursor: pointer !important;
+    transition: background-color 0.3s ease !important;
+    font-weight: bold;
+    margin: 0.5em;
+
+  }
+  
+  .search-container2 button:hover {
+    background-color: #333434 !important; /* Darker color on hover */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2) !important; /* Shadow on hover */
+}
+
+.search-container2 button i {
+    margin-right: 5px; /* Adds a small space between the icon and the text */
   }
 

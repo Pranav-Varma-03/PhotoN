@@ -63,18 +63,23 @@ const PhotoActionsBinContainer = ({photo}) => {
   };
 
   return (
-    <div className="photo-actions-bin-container">
-
-    <div>
-        <img src={photo[0].data} alt="Uploaded" />
-        <p>Resolution: {photo[0].resolution}</p>
-        <p>Size: {photo[0].size}</p>
-        <p>Type: {photo[0].type}</p>
-    </div>
-
-      <div className="photo-actions-bin">
-        <button onClick={handleUndo}>Undo</button>
-        <button onClick={handleDelete}>Delete</button>
+    <div className="photo-actions-container">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></link>
+      <div className="photo-view-card">
+        <div className="photo-content">
+          <img src={photo[0].data} alt="Uploaded" />
+        </div>
+        <div className="photo-details">
+          <div className="photo-actions-bin">
+            <button onClick={handleUndo}><i className="fas fa-undo"></i></button>
+            <button onClick={handleDelete}><i className="fas fa-trash-alt"></i></button>
+          </div>
+          <div className="photo-info-container">
+            <p className="photo-info">Resolution: {photo[0].resolution}</p>
+            <p className="photo-info">Size: {photo[0].size}</p>
+            <p className="photo-info">Type: {photo[0].type}</p>
+          </div>
+        </div>
       </div>
     </div>
   );

@@ -63,27 +63,30 @@ const GlobalPhotoActionsContainer = ({photo}) => {
       alert('Photo disliking failed');
     })
   };
-
   return (
     <div className="photo-actions-container">
-
-    <div>
-        <img src={photo.photo} alt="Uploaded" />
-        <p>Owner: {photo.ownerUserId}</p>
-        <p>Resolution: {photo.resolution}</p>
-        <p>Size: {photo.size}</p>
-        <p>Type: {photo.type}</p>
-        {/* <p>Displaying tags of the photo is remaining</p> */}
-        <p>Tags: {photo.tags.join(' ')}</p>
-    </div>
-
-      <div className="photo-actions">
-        <button onClick={handleDownload}>Download</button>
-        {isLiked ? (
-          <button onClick={handleDislikePhoto}>Dislike Photo</button>
-        ) : (
-          <button onClick={handleLikePhoto}>Like Photo</button>
-        )}
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+      <div className="photo-view-card">
+        <div className="photo-content">
+          <img src={photo.photo} alt="Uploaded" />
+        </div>
+        <div className="photo-details">
+        <div className="photo-actions">
+            <button onClick={handleDownload}><i className="fas fa-download"></i></button>
+            {isLiked ? (
+              <button onClick={handleDislikePhoto}><i className="fas fa-thumbs-down"></i></button>
+            ) : (
+              <button onClick={handleLikePhoto}><i className="fas fa-thumbs-up"></i></button>
+            )}
+          </div>
+          <div className="photo-info-container">
+            <p className="photo-info">Owner: {photo.ownerUserId}</p>
+            <p className="photo-info">Resolution: {photo.resolution}</p>
+            <p className="photo-info">Size: {photo.size}</p>
+            <p className="photo-info">Type: {photo.type}</p>
+            <p className="photo-info">Tags: {photo.tags.join(' ')}</p>
+          </div>
+        </div>
       </div>
     </div>
   );

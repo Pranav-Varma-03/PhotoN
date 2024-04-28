@@ -146,10 +146,12 @@ const PhotoActionsContainer = ({photo}) => {
         <button onClick={handleMakeGlobal}><i className="fas fa-globe"></i></button>
         <button onClick={handleDelete}><i className="fas fa-trash-alt"></i> </button>
         <button onClick={handleDownload}><i className="fas fa-download"></i></button>
+        {/* Additional buttons as required */}
+      </div>
+      <div className='photo-actions2'>
         <EditTags tags={photo[0].tags} photoid={photo[0]._id} />
         <AddtoAlbumButton photoid={photo[0]._id} />
         <SharePhotoButton photoid={photo[0]._id} />
-        {/* Additional buttons as required */}
       </div>
       <div className="photo-info-container">
         {/* All your photo information here */}

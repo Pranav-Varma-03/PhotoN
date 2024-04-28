@@ -32,14 +32,14 @@ const HomeMarketPlace = () => {
     return(
         <div className="center">
             
-            <div className="sidebar">
-            <ul>
-                <li><a href="/home/marketplace">Global Fav</a></li>
+            {/* <div className="sidebar"> */}
+            {/* <ul> */}
+                {/* <li><a href="/home/marketplace">Global Fav</a></li> */}
                 {/* <li><a href="/home/marketplace/followfeed">Follow Feed</a></li> */}
-                <li><a href="/home/marketplace/publicfeed">Feed</a></li>
-                <li><a href="/home/marketplace/uploads">My Uploads</a></li>
-            </ul>
-            </div>
+                {/* <li><a href="/home/marketplace/publicfeed">Feed</a></li> */}
+                {/* <li><a href="/home/marketplace/uploads">My Uploads</a></li> */}
+            {/* </ul> */}
+            {/* </div> */}
             <div className="main-content">
             {
                 photos.length > 0 ? (

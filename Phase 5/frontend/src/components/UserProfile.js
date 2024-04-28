@@ -4,6 +4,7 @@ import M from "materialize-css";
 import axios from 'axios';
 import Cookies from 'js-cookie';
 import UserTags from "./UserTagsButton";
+import './uP.css'
 
 const UserProfile = () => {
 
@@ -110,15 +111,14 @@ const UserProfile = () => {
     };
 
     return (
-        <div className="container1 center">
+        <div className="container5 center">
             {loading ? (
                 <p>Loading...</p>
             ) : !authenticated ? (
-                <div className="container">
-                <p>Hello {ecookie}</p>
-                    <form className="col s12" onSubmit={handleValidateFormSubmit}>
-                        <div className="row">
-                            <div className="input-field col s12">
+                <div className="container6 center">
+                     <p>Hello {ecookie}</p>
+                    <form  onSubmit={handleValidateFormSubmit}>
+                            <div className="search-container center">
                                 <input
                                     type="password"
                                     value={password}
@@ -126,49 +126,52 @@ const UserProfile = () => {
                                 />
                                 <label htmlFor="textarea1">Password</label>
                             </div>
-                        </div>
                         <button className="waves-effect waves-light btn"> Submit </button>
                     </form>
                 </div>
             ) : (
                 <div>
-                    <div className="container">
+                    <div className="container6">
                         <h3>Edit User Profile</h3>
                     </div>
-                    <div className="container">
+                    <div className="container6">
                         <UserTags tags = {tags} userid={ecookie}/>
                     </div>
-                    <div className="container">
-                        <form className="col s12" onSubmit={handleUpdateLockFormSubmit}>
-                            <div className="row">
-                                <div className="input-field col s12">
-                                    <input
-                                        type="password"
-                                        value={newLockPwd}
-                                        onChange={handleUpdateLockSubmit}
-                                    />
-                                    <label htmlFor="textarea1">Lock Folder Password</label>
-                                </div>
-                            </div>
-                            <button className="waves-effect waves-light btn"> Update </button>
-                        </form>
-                    </div>
+                    <div className="container6">
+  <div className="input-field-container">
+    <input
+      type="password"
+      placeholder="Locked Folder Password"
+      className="password-input"
+      value={newLockPwd}
+      onChange={handleUpdateLockSubmit}
+    />
+    <button
+      className="update-button waves-effect waves-light btn"
+      onClick={handleUpdateLockFormSubmit} // Use an onClick event to submit
+    >
+      Update
+    </button>
+  </div>
+</div>
 
-                    <div className="container">
-                        <form className="col s12" onSubmit={handleUpdatePwdFormSubmit}>
-                            <div className="row">
-                                <div className="input-field col s12">
-                                    <input
-                                        type="password"
-                                        value={newPwd}
-                                        onChange={handleUpdatePwdSubmit}
-                                    />
-                                    <label htmlFor="textarea1">Profile Password</label>
-                                </div>
-                            </div>
-                            <button className="waves-effect waves-light btn"> Update </button>
-                        </form>
-                    </div>
+<div className="container6">
+  <div className="input-field-container">
+    <input
+      type="password"
+      placeholder="Profile password"
+      className="password-input"
+      value={newPwd}
+      onChange={handleUpdatePwdSubmit}
+    />
+    <button
+      className="update-button waves-effect waves-light btn"
+      onClick={handleUpdatePwdFormSubmit} // Assume this is your event handler for button click
+    >
+      Update
+    </button>
+  </div>
+</div>
 
                 </div>
             )}

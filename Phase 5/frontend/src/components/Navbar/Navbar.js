@@ -7,7 +7,7 @@ const Navbar = () =>{
 
     const navigate = useNavigate();
     const location = useLocation(); // This provides the current router location
-
+    const isPhotoNPath = location.pathname.startsWith('/home/photon');
     // Logic to determine if the link should get the "active-link" class
     const getNavLinkClass = (path) => {
         return location.pathname === path ? 'active-link' : '';
@@ -55,22 +55,36 @@ const Navbar = () =>{
 
     return(
         <>
-        <nav className="nav-wrapper red darken-3">
+        <nav className="nav-wrapper darken-3">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></link>
             <div className="container">
-                <ul id="nav-mobile" className="left hide-on-med-and-down">
-                    <li><a href={hrefHomePhoton} >PhotoN</a></li>
-                    <li><a href={hrefHomeMarketplace} >MarketPlace</a></li>
+                <div className="cont">
+                <ul >
+                    <li><a href={hrefHomePhoton} >PHOTO N</a></li>
+                    <li><a href={hrefHomeMarketplace} >Market Place</a></li>
                 </ul>
-                <ul id="nav-mobile" className="right hide-on-med-and-down">
+                </div>
+                
+                <div className="up_button">
+                <ul >
                 <UploadButton />
                 </ul>
-                <ul className="right">
-                    <button onClick={handleProfile}>Profile</button>
-                    <button onClick={handleclick} >Logout</button>
-                </ul>
+                </div>
+                
+                <div class="button-container2">
+    <button class="profile-button" onClick={handleProfile}>
+        <i class="fas fa-user-circle"></i> Profile
+    </button>
+    <button class="logout-button" onClick={handleclick}>
+        <i class="fas fa-sign-out-alt"></i> Logout
+    </button>
+</div>
+
+
             </div>
         </nav>
-        <div className="sidebar center">
+        {isPhotoNPath ?
+        (<div className="sidebar center">
                 <ul>
                     <li ><a href="/home/photon" className={getNavLinkClass('/home/photon')}>All Photos</a></li>
                     <li ><a href="/home/photon/share" className={getNavLinkClass('/home/photon/share')}>Shared</a></li>
@@ -79,9 +93,17 @@ const Navbar = () =>{
                     <li ><a href="/home/photon/lock" className={getNavLinkClass('/home/photon/lock')}>Locked</a></li>
                     <li ><a href="/home/photon/bin" className={getNavLinkClass('/home/photon/bin')}>Bin</a></li>
                 </ul>
-            </div>
+            </div>) :
+       ( 
+       <div className="sidebar2 center">
+        <ul>
+                        <li><a href="/home/marketplace" className={getNavLinkClass('/home/marketplace')}>Global Fav</a></li>
+                        <li><a href="/home/marketplace/publicfeed" className={getNavLinkClass('/home/marketplace/publicfeed')}>Public Feed</a></li>
+                        <li><a href="/home/marketplace/uploads" className={getNavLinkClass('/home/marketplace/uploads')}>My Uploads</a></li>
+        </ul>
+        </div>)}
         </>
-    )
+    );
 }
 
 export default Navbar

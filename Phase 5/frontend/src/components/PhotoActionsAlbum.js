@@ -5,7 +5,7 @@ import EditTags from './EditTagsButton';
 import { TagsInput } from "react-tag-input-component";
 import AddtoAlbumButton from './Home/PhotoN/Album/AddtoAlbumButton';
 import MovetoAlbumButton from './Home/PhotoN/Album/MovetoAlbumButton';
-
+import './photoActions.css'
 
 const PhotoActionsAlbumContainer = ({albumId,photo}) => {
   // console.log("AL");
@@ -137,29 +137,36 @@ const PhotoActionsAlbumContainer = ({albumId,photo}) => {
 
   return (
     <div className="photo-actions-container">
-
-    <div>
-        <img src={photo[0].data} alt="Uploaded" />
-        <p>Resolution: {photo[0].resolution}</p>
-        <p>Size: {photo[0].size}</p>
-        <p>Type: {photo[0].type}</p>
-    </div>
-
-      <div className="photo-actions">
-        <button onClick={handleChangeFavorite} style={{ backgroundColor: photo[0].favoritesFlag ? 'red' : 'transparent' }}>
-          {photo[0].favoritesFlag ? 'Unfavorite' : 'Favorite'}
-        </button>
-        <button onClick={handleMakeHidden}>Make Hidden</button>
-        <button onClick={handleMakeGlobal}>Make Global</button>
-        <button onClick={handleDelete}>Delete</button>
-        <button onClick={handleRemove}>Remove</button>
-        <EditTags tags = {photo[0].tags} photoid={photo[0]._id}/>
-        {/* <button onClick={handleEditTags}>Edit Tags</button> */}
-        <button onClick={handleDownload}>Download</button>
-        <AddtoAlbumButton photoid={photo[0]._id}/>
-        <MovetoAlbumButton photoid={photo[0]._id} currAlbId = {albumId}/>
-        <button onClick={handleShare}>Share</button>
-        {/* missing adding to a album , move albumn , and info of a image , sharing a image */}
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></link>
+      <div className="photo-view-card">
+        <div className="photo-content">
+          <img src={photo[0].data} alt="Uploaded" />
+        </div>
+        <div className="photo-details">
+          <div className="photo-actions">
+            {/* Action buttons with FontAwesome icons */}
+            <button onClick={handleChangeFavorite} className={`favorite-button ${photo[0].favoritesFlag ? 'active' : ''}`}>
+              {photo[0].favoritesFlag ? <i className="fas fa-heart"></i> : <i className="far fa-heart"></i>}
+            </button>
+            <button onClick={handleMakeHidden}><i className="fas fa-eye-slash"></i></button>
+            <button onClick={handleMakeGlobal}><i className="fas fa-globe"></i></button>
+            <button onClick={handleDelete}><i className="fas fa-trash-alt"></i></button>
+            <button onClick={handleDownload}><i className="fas fa-download"></i></button>
+            <button onClick={handleRemove}><i className="fas fa-minus-circle"></i></button>
+            <button onClick={handleShare}><i className="fas fa-share"></i></button>
+          </div>
+          <div className='photo-actions2'>
+          <EditTags tags={photo[0].tags} photoid={photo[0]._id} />
+            <AddtoAlbumButton photoid={photo[0]._id} />
+            <MovetoAlbumButton photoid={photo[0]._id} currAlbId={albumId} />
+          </div>
+          <div className="photo-info-container">
+            {/* Photo information */}
+            <p className="photo-info">Resolution: {photo[0].resolution}</p>
+            <p className="photo-info">Size: {photo[0].size}</p>
+            <p className="photo-info">Type: {photo[0].type}</p>
+          </div>
+        </div>
       </div>
     </div>
   );

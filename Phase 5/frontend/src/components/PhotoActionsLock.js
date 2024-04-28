@@ -90,23 +90,27 @@ const PhotoActionsFavContainer = ({photo}) => {
 
   };
 
-
   return (
     <div className="photo-actions-container">
-
-    <div>
-        <img src={photo[0].data} alt="Uploaded" />
-        <p>Resolution: {photo[0].resolution}</p>
-        <p>Size: {photo[0].size}</p>
-        <p>Type: {photo[0].type}</p>
-    </div>
-
-      <div className="photo-actions">
-        <button onClick={handleChangeFavorite} style={{ backgroundColor: photo[0].favoritesFlag ? 'red' : 'transparent' }}>
-          {photo[0].favoritesFlag ? 'Unfavorite' : 'Favorite'}
-        </button>
-        <button onClick={handleMakeHidden}>Make UnHidden</button>
-        <button onClick={handleDelete}>Delete</button>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+      <div className="photo-view-card">
+        <div className="photo-content">
+          <img src={photo[0].data} alt="Uploaded" />
+        </div>
+        <div className="photo-details">
+          <div className="photo-actions">
+            <button onClick={handleChangeFavorite} className={`favorite-button ${photo[0].favoritesFlag ? 'active' : ''}`}>
+              {photo[0].favoritesFlag ? <i className="fas fa-heart"></i> : <i className="far fa-heart"></i>}
+            </button>
+            <button onClick={handleMakeHidden}><i className="fas fa-eye"></i></button>
+            <button onClick={handleDelete}><i className="fas fa-trash-alt"></i> Delete </button>
+          </div>
+          <div className="photo-info-container">
+            <p className="photo-info">Resolution: {photo[0].resolution}</p>
+            <p className="photo-info">Size: {photo[0].size}</p>
+            <p className="photo-info">Type: {photo[0].type}</p>
+          </div>
+        </div>
       </div>
     </div>
   );

@@ -37,10 +37,12 @@ const Share = () => {
   };
 
   return (
-    <div className="main-content center">
-      <button onClick={redirectToAlbum}>
+    <div className="main-content">
+      <div className="button-container">
+      <button onClick={redirectToAlbum} className="smallBs">
         View Shared Albums
       </button>
+      </div>
       {loading ? (
         <div><h3>Loading...</h3></div> // Display loading indicator
       ) : (

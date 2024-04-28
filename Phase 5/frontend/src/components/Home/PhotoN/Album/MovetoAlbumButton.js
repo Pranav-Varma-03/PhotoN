@@ -68,7 +68,10 @@ const MovetoAlbumButton = ({photoid,currAlbId})=> {
   return (
 
   <div>
-   <button className="btn modal-trigger" data-target="modal3">Move to Album</button>
+   <button className="btn modal-trigger" data-target="modal3"><i className="fas fa-exchange-alt"></i>
+
+
+</button>
 
     <div id="modal3" className="modal">
       <div className="modal-content">

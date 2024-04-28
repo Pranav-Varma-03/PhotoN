@@ -103,16 +103,19 @@ const HomePhotoN = () => {
     };
 
     return (
-    <div className="center">
-        <div className="main-content">
+        <div className="center">
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></link>
+            <div className="main-content">
+            <div class="search-container">
             <input
-                type="text"
-                placeholder="Description of Photo for search"
-                value={searchText}
-                onChange={(e) => {setSearchText(e.target.value);setSearchClick(false)}}
-            />
-            <button onClick={handleSearch}>Search</button>
-            {loading ? (
+    type="text"
+    placeholder="Description of Photo for search"
+    value={searchText}
+    onChange={(e) => setSearchText(e.target.value)}
+  />
+  <button onClick={handleSearch}>Search</button>
+</div>
+                {loading ? (
                     <div>
                         <h3>
                         Loading...

@@ -62,6 +62,7 @@ const AlbumManager = () => {
   return (
     <div className="container1">
       <div className="center">ALBUMS PAGE</div>
+      <div className="search-container2">
       <div className="input-field">
         <input
           type="text"
@@ -70,21 +71,26 @@ const AlbumManager = () => {
           onChange={(e) => setNewAlbumName(e.target.value)}
           placeholder="Enter new album name"
         />
-        <button className="waves-effect waves-light btn" onClick={handleCreateAlbum}>
-          Create Album
+        <button onClick={handleCreateAlbum}>
+        <i class="fa fa-plus-square" aria-hidden="true"></i>Create Album
         </button>
+        
       </div>
+      </div>
+      
       <div className="input-field">
         {loading ? (
           <h3>Loading...</h3> // Display loading message while fetching albums
         ) : (
           <>
-            <h5>Existing Albums:</h5>
+            <h5><u>Existing Albums:</u></h5>
             {albums.length > 0 ? (
               albums.map((album, index) => (
-                <button key={index} className="waves-effect waves-light btn" onClick={() => handleAlbum(album._id)}>
+                <div className="button-container">
+                  <button key={index} className=" smallBs" onClick={() => handleAlbum(album._id)}>
                   {album.vaultName}
                 </button>
+                </div>
               ))
             ) : (
               <p>No albums found.</p>

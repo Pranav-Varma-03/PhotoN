@@ -86,21 +86,18 @@ const Lock = () => {
               <h3>Loading...</h3>
             ):!authenticated ? (
         <div className="container2">
-        <form className="col s12" onSubmit={handleFormSubmit}>
-            <div className="row">
-                <div className="input-field col s12">
-                    {/* <textarea id="textarea1" className="materialize-textarea" onChange={(e) => { setPassword(e.target.value) }}></textarea> */}
-                    <input
-                    type="password"
-                    value={password}
-                    onChange={handlePasswordChange}
-                    />
-                    <label htmlFor="textarea1">Password</label>
-                </div>
-            </div>
-
-            <button className="waves-effect waves-light btn"> Submit </button>
-        </form>
+        <div className="search-container2">
+    <div className="input-field">
+      <input
+        id="passwordInput"
+        type="password"
+        placeholder="Password"
+        value={password}
+        onChange={handlePasswordChange}
+      />
+  <button onClick={handleFormSubmit}>Submit</button>
+  </div>
+</div>
         </div>
       ) : photos.length > 0 ? (
         <Grid photos={photos} flag={2} />

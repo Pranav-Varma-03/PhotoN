@@ -35,7 +35,7 @@ const Grid = ({ photos, flag, albumId}) => {
     gridContent = (
       <div className="grid-container">
         {photos.map(photo => (
-          <Link to={`/home/marketplace/uploads/${photo._id}`} key={photo._id}>
+          <Link to={`/home/marketplace/uploads/${photo._id}`} key={photo._id} className= 'grid-item'>
             <img src={`${photo.photo}`} alt="Uploaded" />
           </Link>
         ))}
@@ -108,7 +108,7 @@ const Grid = ({ photos, flag, albumId}) => {
     gridContent = (
       <div className="grid-container">
         {photos.map(photo => (
-          <img src={`${photo.data}`} alt="Uploaded" key={photo._id} />
+          <img src={`${photo.data}`} alt="Uploaded" key={photo._id} className= 'grid-item'/>
         ))}
       </div>
     );

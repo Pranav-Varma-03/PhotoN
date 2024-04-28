@@ -26,15 +26,26 @@
     flex: 1; /* Take up remaining space */
 }
 
-.photo-actions button, .photo-info-container {
-    margin-bottom: 10px;
-}
 
-/* Hover effect */
+
+
+
 .photo-actions button:hover {
     background-color: #e0e0e0; /* Slightly darker on hover */
     transform: translateY(-2px); /* Subtle lift effect */
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+}
+
+.photo-actions2 {
+    display: flex; /* Align items in a row */
+    justify-content: flex-start; /* Align items to the start of the container */
+    align-items: center; /* Center items vertically */
+    gap: 10px; /* Space between children */
+}
+
+.photo-actions2 > * {
+    padding: 10px; /* Apply padding to all direct children */
+    padding-left: 0px;
 }
 
 /* Active favorite button */

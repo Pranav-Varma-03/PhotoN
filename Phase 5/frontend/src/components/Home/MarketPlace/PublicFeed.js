@@ -48,15 +48,8 @@ const PublicFeed = () => {
     };
 
     return (
-        <div className="center">
-            <div className="sidebar">
-            <ul>
-                <li><a href="/home/marketplace">Global Fav</a></li>
-                <li><a href="/home/marketplace/publicfeed">Feed</a></li>
-                <li><a href="/home/marketplace/uploads">My Uploads</a></li>
-            </ul>
-            </div>
-            <div className="main-content">
+        <div className="main-content center">
+            <div className="search-container">
             <input
                     type="text"
                     placeholder="Description of Photo for search"
