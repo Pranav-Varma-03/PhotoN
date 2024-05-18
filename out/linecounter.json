@@ -1,0 +1,591 @@
+{
+    "extension": "linecounter",
+    "version": "0.2.7",
+    "workspace": "/media/pranav/SSD/Clg/AA Sem 6/SWE/Proj/SWE",
+    "linecount": [
+        {
+            "version": "0.2.7",
+            "counttime": "2024-04-28 11:37:09",
+            "filesum": 89,
+            "codesum": 25135,
+            "commentsum": 650,
+            "blanksum": 885,
+            "statistics": {
+                ".md": {
+                    "code": 22,
+                    "comment": 4,
+                    "blank": 15
+                },
+                ".js": {
+                    "code": 4000,
+                    "comment": 601,
+                    "blank": 841
+                },
+                ".css": {
+                    "code": 215,
+                    "comment": 20,
+                    "blank": 19
+                },
+                ".txt": {
+                    "code": 3,
+                    "comment": 1,
+                    "blank": 0
+                },
+                ".json": {
+                    "code": 20866,
+                    "comment": 0,
+                    "blank": 7
+                },
+                ".html": {
+                    "code": 21,
+                    "comment": 23,
+                    "blank": 1
+                },
+                "": {
+                    "code": 8,
+                    "comment": 1,
+                    "blank": 2
+                }
+            },
+            "filelist": [
+                {
+                    "blank": 2,
+                    "code": 7,
+                    "comment": 0,
+                    "filename": "Phase 5/.gitignore"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 1,
+                    "filename": "Phase 5/backend/.env"
+                },
+                {
+                    "blank": 2,
+                    "code": 24,
+                    "comment": 0,
+                    "filename": "Phase 5/backend/models/AlbumUploadModel.js"
+                },
+                {
+                    "blank": 2,
+                    "code": 15,
+                    "comment": 0,
+                    "filename": "Phase 5/backend/models/GlobalfavUploadModel.js"
+                },
+                {
+                    "blank": 2,
+                    "code": 27,
+                    "comment": 0,
+                    "filename": "Phase 5/backend/models/GlobalImageUploadModel.js"
+                },
+                {
+                    "blank": 2,
+                    "code": 15,
+                    "comment": 1,
+                    "filename": "Phase 5/backend/models/SharedAlbumModel.js"
+                },
+                {
+                    "blank": 2,
+                    "code": 15,
+                    "comment": 1,
+                    "filename": "Phase 5/backend/models/SharedPhotoModel.js"
+                },
+                {
+                    "blank": 2,
+                    "code": 55,
+                    "comment": 1,
+                    "filename": "Phase 5/backend/models/UploadModel.js"
+                },
+                {
+                    "blank": 2,
+                    "code": 24,
+                    "comment": 0,
+                    "filename": "Phase 5/backend/models/UserUploadModel.js"
+                },
+                {
+                    "blank": 2,
+                    "code": 1688,
+                    "comment": 0,
+                    "filename": "Phase 5/backend/package-lock.json"
+                },
+                {
+                    "blank": 0,
+                    "code": 24,
+                    "comment": 0,
+                    "filename": "Phase 5/backend/package.json"
+                },
+                {
+                    "blank": 49,
+                    "code": 192,
+                    "comment": 13,
+                    "filename": "Phase 5/backend/routes/AlbumCreation.js"
+                },
+                {
+                    "blank": 16,
+                    "code": 73,
+                    "comment": 5,
+                    "filename": "Phase 5/backend/routes/GlobalFeedRoute.js"
+                },
+                {
+                    "blank": 57,
+                    "code": 175,
+                    "comment": 32,
+                    "filename": "Phase 5/backend/routes/PhotoActionsRoute.js"
+                },
+                {
+                    "blank": 17,
+                    "code": 174,
+                    "comment": 18,
+                    "filename": "Phase 5/backend/routes/photoRoute.js"
+                },
+                {
+                    "blank": 39,
+                    "code": 100,
+                    "comment": 14,
+                    "filename": "Phase 5/backend/routes/SharedPhotoRoute.js"
+                },
+                {
+                    "blank": 24,
+                    "code": 110,
+                    "comment": 6,
+                    "filename": "Phase 5/backend/routes/UploadRoute.js"
+                },
+                {
+                    "blank": 43,
+                    "code": 132,
+                    "comment": 21,
+                    "filename": "Phase 5/backend/routes/UserCreation.js"
+                },
+                {
+                    "blank": 4,
+                    "code": 27,
+                    "comment": 5,
+                    "filename": "Phase 5/backend/routes/ViewBinRoute.js"
+                },
+                {
+                    "blank": 3,
+                    "code": 27,
+                    "comment": 6,
+                    "filename": "Phase 5/backend/routes/ViewFavRoute.js"
+                },
+                {
+                    "blank": 4,
+                    "code": 27,
+                    "comment": 5,
+                    "filename": "Phase 5/backend/routes/ViewLockRoute.js"
+                },
+                {
+                    "blank": 21,
+                    "code": 55,
+                    "comment": 23,
+                    "filename": "Phase 5/backend/routes/ViewSharedPhoto.js"
+                },
+                {
+                    "blank": 8,
+                    "code": 51,
+                    "comment": 2,
+                    "filename": "Phase 5/backend/server.js"
+                },
+                {
+                    "blank": 2,
+                    "code": 19080,
+                    "comment": 0,
+                    "filename": "Phase 5/frontend/package-lock.json"
+                },
+                {
+                    "blank": 3,
+                    "code": 49,
+                    "comment": 0,
+                    "filename": "Phase 5/frontend/package.json"
+                },
+                {
+                    "filename": "Phase 5/frontend/public/favicon.ico",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "blank": 1,
+                    "code": 21,
+                    "comment": 23,
+                    "filename": "Phase 5/frontend/public/index.html"
+                },
+                {
+                    "filename": "Phase 5/frontend/public/logo192.png",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "Phase 5/frontend/public/logo512.png",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "blank": 0,
+                    "code": 25,
+                    "comment": 0,
+                    "filename": "Phase 5/frontend/public/manifest.json"
+                },
+                {
+                    "blank": 0,
+                    "code": 3,
+                    "comment": 1,
+                    "filename": "Phase 5/frontend/public/robots.txt"
+                },
+                {
+                    "blank": 15,
+                    "code": 21,
+                    "comment": 4,
+                    "filename": "Phase 5/frontend/README.md"
+                },
+                {
+                    "blank": 6,
+                    "code": 76,
+                    "comment": 4,
+                    "filename": "Phase 5/frontend/src/App.js"
+                },
+                {
+                    "blank": 12,
+                    "code": 48,
+                    "comment": 4,
+                    "filename": "Phase 5/frontend/src/components/EditTagsButton.js"
+                },
+                {
+                    "blank": 2,
+                    "code": 23,
+                    "comment": 0,
+                    "filename": "Phase 5/frontend/src/components/grid.css"
+                },
+                {
+                    "blank": 13,
+                    "code": 108,
+                    "comment": 1,
+                    "filename": "Phase 5/frontend/src/components/Grid.js"
+                },
+                {
+                    "blank": 2,
+                    "code": 8,
+                    "comment": 0,
+                    "filename": "Phase 5/frontend/src/components/Home/MarketPlace/FollowFeed.js"
+                },
+                {
+                    "blank": 3,
+                    "code": 30,
+                    "comment": 1,
+                    "filename": "Phase 5/frontend/src/components/Home/MarketPlace/GlobalUploadPhoto.js"
+                },
+                {
+                    "blank": 9,
+                    "code": 48,
+                    "comment": 2,
+                    "filename": "Phase 5/frontend/src/components/Home/MarketPlace/HomeMarketPlace.js"
+                },
+                {
+                    "blank": 8,
+                    "code": 80,
+                    "comment": 2,
+                    "filename": "Phase 5/frontend/src/components/Home/MarketPlace/PublicFeed.js"
+                },
+                {
+                    "blank": 9,
+                    "code": 52,
+                    "comment": 3,
+                    "filename": "Phase 5/frontend/src/components/Home/MarketPlace/Uploads.js"
+                },
+                {
+                    "blank": 7,
+                    "code": 89,
+                    "comment": 11,
+                    "filename": "Phase 5/frontend/src/components/Home/PhotoN/Album.js"
+                },
+                {
+                    "blank": 16,
+                    "code": 69,
+                    "comment": 13,
+                    "filename": "Phase 5/frontend/src/components/Home/PhotoN/Album/AddtoAlbumButton.js"
+                },
+                {
+                    "blank": 10,
+                    "code": 115,
+                    "comment": 10,
+                    "filename": "Phase 5/frontend/src/components/Home/PhotoN/Album/AlbumViews.js"
+                },
+                {
+                    "blank": 9,
+                    "code": 55,
+                    "comment": 9,
+                    "filename": "Phase 5/frontend/src/components/Home/PhotoN/Album/AlbumViewShare.js"
+                },
+                {
+                    "blank": 15,
+                    "code": 72,
+                    "comment": 15,
+                    "filename": "Phase 5/frontend/src/components/Home/PhotoN/Album/MovetoAlbumButton.js"
+                },
+                {
+                    "blank": 9,
+                    "code": 49,
+                    "comment": 4,
+                    "filename": "Phase 5/frontend/src/components/Home/PhotoN/AlbumShare.js"
+                },
+                {
+                    "blank": 6,
+                    "code": 43,
+                    "comment": 6,
+                    "filename": "Phase 5/frontend/src/components/Home/PhotoN/Bin.js"
+                },
+                {
+                    "blank": 0,
+                    "code": 11,
+                    "comment": 0,
+                    "filename": "Phase 5/frontend/src/components/Home/PhotoN/css_to_photoN/album.css"
+                },
+                {
+                    "blank": 0,
+                    "code": 7,
+                    "comment": 1,
+                    "filename": "Phase 5/frontend/src/components/Home/PhotoN/css_to_photoN/bin.css"
+                },
+                {
+                    "blank": 0,
+                    "code": 7,
+                    "comment": 0,
+                    "filename": "Phase 5/frontend/src/components/Home/PhotoN/css_to_photoN/fav.css"
+                },
+                {
+                    "blank": 0,
+                    "code": 8,
+                    "comment": 0,
+                    "filename": "Phase 5/frontend/src/components/Home/PhotoN/css_to_photoN/homePhotoN.css"
+                },
+                {
+                    "blank": 0,
+                    "code": 10,
+                    "comment": 0,
+                    "filename": "Phase 5/frontend/src/components/Home/PhotoN/css_to_photoN/lock.css"
+                },
+                {
+                    "blank": 1,
+                    "code": 9,
+                    "comment": 0,
+                    "filename": "Phase 5/frontend/src/components/Home/PhotoN/css_to_photoN/photoView.css"
+                },
+                {
+                    "blank": 0,
+                    "code": 7,
+                    "comment": 0,
+                    "filename": "Phase 5/frontend/src/components/Home/PhotoN/css_to_photoN/save.css"
+                },
+                {
+                    "blank": 0,
+                    "code": 7,
+                    "comment": 0,
+                    "filename": "Phase 5/frontend/src/components/Home/PhotoN/css_to_photoN/share.css"
+                },
+                {
+                    "blank": 6,
+                    "code": 43,
+                    "comment": 5,
+                    "filename": "Phase 5/frontend/src/components/Home/PhotoN/Fav.js"
+                },
+                {
+                    "blank": 13,
+                    "code": 134,
+                    "comment": 15,
+                    "filename": "Phase 5/frontend/src/components/Home/PhotoN/HomePhotoN.js"
+                },
+                {
+                    "blank": 14,
+                    "code": 93,
+                    "comment": 9,
+                    "filename": "Phase 5/frontend/src/components/Home/PhotoN/Lock.js"
+                },
+                {
+                    "blank": 9,
+                    "code": 30,
+                    "comment": 12,
+                    "filename": "Phase 5/frontend/src/components/Home/PhotoN/PhotoView.js"
+                },
+                {
+                    "blank": 11,
+                    "code": 33,
+                    "comment": 3,
+                    "filename": "Phase 5/frontend/src/components/Home/PhotoN/PhotoViewAlbum.js"
+                },
+                {
+                    "blank": 13,
+                    "code": 30,
+                    "comment": 24,
+                    "filename": "Phase 5/frontend/src/components/Home/PhotoN/PhotoViewBin.js"
+                },
+                {
+                    "blank": 7,
+                    "code": 29,
+                    "comment": 7,
+                    "filename": "Phase 5/frontend/src/components/Home/PhotoN/PhotoViewGlobal.js"
+                },
+                {
+                    "blank": 13,
+                    "code": 30,
+                    "comment": 24,
+                    "filename": "Phase 5/frontend/src/components/Home/PhotoN/PhotoViewLock.js"
+                },
+                {
+                    "blank": 10,
+                    "code": 30,
+                    "comment": 14,
+                    "filename": "Phase 5/frontend/src/components/Home/PhotoN/PhotoViewShare.js"
+                },
+                {
+                    "blank": 5,
+                    "code": 48,
+                    "comment": 7,
+                    "filename": "Phase 5/frontend/src/components/Home/PhotoN/Share.js"
+                },
+                {
+                    "blank": 31,
+                    "code": 73,
+                    "comment": 10,
+                    "filename": "Phase 5/frontend/src/components/Login.js"
+                },
+                {
+                    "blank": 9,
+                    "code": 73,
+                    "comment": 15,
+                    "filename": "Phase 5/frontend/src/components/Navbar/navbar.css"
+                },
+                {
+                    "blank": 10,
+                    "code": 53,
+                    "comment": 25,
+                    "filename": "Phase 5/frontend/src/components/Navbar/Navbar.js"
+                },
+                {
+                    "blank": 6,
+                    "code": 41,
+                    "comment": 4,
+                    "filename": "Phase 5/frontend/src/components/photoActions.css"
+                },
+                {
+                    "blank": 30,
+                    "code": 108,
+                    "comment": 42,
+                    "filename": "Phase 5/frontend/src/components/PhotoActions.js"
+                },
+                {
+                    "blank": 28,
+                    "code": 111,
+                    "comment": 42,
+                    "filename": "Phase 5/frontend/src/components/PhotoActionsAlbum.js"
+                },
+                {
+                    "blank": 18,
+                    "code": 52,
+                    "comment": 20,
+                    "filename": "Phase 5/frontend/src/components/PhotoActionsBin.js"
+                },
+                {
+                    "blank": 14,
+                    "code": 70,
+                    "comment": 14,
+                    "filename": "Phase 5/frontend/src/components/PhotoActionsGlobal.js"
+                },
+                {
+                    "blank": 23,
+                    "code": 72,
+                    "comment": 32,
+                    "filename": "Phase 5/frontend/src/components/PhotoActionsLock.js"
+                },
+                {
+                    "blank": 13,
+                    "code": 35,
+                    "comment": 16,
+                    "filename": "Phase 5/frontend/src/components/PhotoActionsShare.js"
+                },
+                {
+                    "blank": 12,
+                    "code": 43,
+                    "comment": 5,
+                    "filename": "Phase 5/frontend/src/components/PhotoActionsUploadedGlobal.js"
+                },
+                {
+                    "blank": 5,
+                    "code": 19,
+                    "comment": 0,
+                    "filename": "Phase 5/frontend/src/components/ProtectedRoute/ProtectedRoute.js"
+                },
+                {
+                    "blank": 20,
+                    "code": 96,
+                    "comment": 7,
+                    "filename": "Phase 5/frontend/src/components/ShareAlbumButton.js"
+                },
+                {
+                    "blank": 20,
+                    "code": 96,
+                    "comment": 7,
+                    "filename": "Phase 5/frontend/src/components/SharePhotoButton.js"
+                },
+                {
+                    "blank": 24,
+                    "code": 68,
+                    "comment": 0,
+                    "filename": "Phase 5/frontend/src/components/Signup.js"
+                },
+                {
+                    "blank": 21,
+                    "code": 114,
+                    "comment": 5,
+                    "filename": "Phase 5/frontend/src/components/UploadButton.js"
+                },
+                {
+                    "blank": 22,
+                    "code": 154,
+                    "comment": 7,
+                    "filename": "Phase 5/frontend/src/components/UserProfile.js"
+                },
+                {
+                    "blank": 13,
+                    "code": 51,
+                    "comment": 4,
+                    "filename": "Phase 5/frontend/src/components/UserTagsButton.js"
+                },
+                {
+                    "blank": 1,
+                    "code": 12,
+                    "comment": 0,
+                    "filename": "Phase 5/frontend/src/index.css"
+                },
+                {
+                    "blank": 2,
+                    "code": 12,
+                    "comment": 3,
+                    "filename": "Phase 5/frontend/src/index.js"
+                },
+                {
+                    "blank": 1,
+                    "code": 12,
+                    "comment": 0,
+                    "filename": "Phase 5/frontend/src/reportWebVitals.js"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 4,
+                    "filename": "Phase 5/frontend/src/setupTests.js"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 0,
+                    "filename": "README.md"
+                }
+            ]
+        }
+    ]
+}

@@ -18,6 +18,7 @@ const Button = ({ setUpdateUI }) => {
   const [size,setSize] = useState("");
   const [base64,setBase64] = useState("");
   const [gpsData, setGpsData] = useState("");
+  const [uploading,setUploading] = useState(false)
 
   const getGPSData = () => {
     if (navigator.geolocation) {
@@ -40,10 +41,18 @@ const Button = ({ setUpdateUI }) => {
   const convertIntoBase64 = (e) => {
     const file = e.target.files[0];
     console.log("File Binarystring:",file) ;
-    if (file.size > 70000) { 
+    if (file.size > 5000000) { 
       alert('File size exceeds maximum limit.');
       return;
     }
+
+    if(e.target.files[0].type === "image/jpeg" || e.target.files[0].type === "image/jpg" || e.target.files[0].type === "image/png"  ){
+
+    }else{
+      alert('Incorrect file type');
+      return;
+    }
+
     var reader = new FileReader();
 
     reader.onload = () => {
@@ -104,8 +113,7 @@ const Button = ({ setUpdateUI }) => {
       <div className="modal-content">
       <span className="black-text">Select Image to Upload</span>
       <div style={{ display: 'flex', justifyContent: 'flex-end' }}>
-        <div className="center">
-        <label className="modal-close waves-effect waves-green btn-flat" htmlFor="file_picker">
+        <label className="button" htmlFor="file_picker">
           Browse
           <input
             hidden
@@ -117,7 +125,6 @@ const Button = ({ setUpdateUI }) => {
             }}
           />
         </label>
-        </div>
       </div>
       </div>
       <div className="modal-footer">
